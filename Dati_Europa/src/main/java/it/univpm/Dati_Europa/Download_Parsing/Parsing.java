@@ -19,8 +19,8 @@ import org.json.simple.JSONValue;
 import org.json.simple.parser.ParseException;
 
 public class Parsing {
-	ArrayList <String> Indici = new ArrayList <String>(); //lista che conterr� gli indici che descrivono i paesi nel csv
-	ArrayList <Double> Valori = new ArrayList <Double>(); //lista che conterr� i valori relativi agli indici per tutti i paesi del csv
+	ArrayList <String> Indici = new ArrayList <String>(); //lista che conterrà gli indici che descrivono i paesi nel csv
+	ArrayList <Double> Valori = new ArrayList <Double>(); //lista che conterrà i valori relativi agli indici per tutti i paesi del csv
 	private static final String DELIMETER_1 = "," ; // carattere separatore
 	private static final String DELIMETER_2 = "%" ; // carattere che permetter� di distinguere i double dalle stringhe
 	private static final String DELIMETER_3 = ",,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,," ; // separatori delle macrocategorie
@@ -46,7 +46,11 @@ public class Parsing {
 					bool1 = true;
 					continue; // permette di saltare la prima riga del csv
 				}
-				String[] Campi = riga.split(DELIMETER_1);  // dopo aver letto una riga del csv la divide ogni volta che trova il carattere separatore ","
+				
+				String[] Campi = riga.split(DELIMETER_1); // dopo aver letto una riga del csv la divide ogni volta che trova il carattere separatore ","
+				System.out.println(Campi);
+				
+				
 				for(String campo : Campi)
 				{
 					String new_campo = campo.replace(DELIMETER_2,""); // a tutti gli elementi del vettore di stringhe verrà rimosso il carattere percentuale, se presente
