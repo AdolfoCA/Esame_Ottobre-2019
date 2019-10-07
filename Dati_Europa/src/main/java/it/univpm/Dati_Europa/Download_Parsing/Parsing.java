@@ -4,10 +4,12 @@ import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 //import java.io.FileReader;
 import java.io.IOException;
+import java.io.InputStream;
 //import it.univpm.Dati_Europa.Download_Parsing.*;
 //import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.net.URL;
+import java.net.URLConnection;
 //import java.net.URLConnection;
 import java.util.ArrayList;
 import java.util.List;
@@ -53,11 +55,11 @@ public class Parsing {
 				for(String campo : Campi)
 				{
 					String new_campo = campo.replace(DELIMETER_2,""); // a tutti gli elementi del vettore di stringhe verrà rimosso il carattere percentuale, se presente
-					if(campo == new_campo) // se campo e new_campo sono uguali è perchè non è stato rimosso il carattere percentuale, in quanto non presente e quindi campo è uno degli indici
+					if(campo.equals(new_campo)) // se campo e new_campo sono uguali è perchè non è stato rimosso il carattere percentuale, in quanto non presente e quindi campo è uno degli indici
 					{
 						Indici.add(new_campo); // aggiunta alla lista degli indici
 					}
-					if(campo!=new_campo) // se sono diversi è perchè il carattere percentuale è stato trovato e rimosso, di conseguenza new_campo è un numero
+					else // se sono diversi è perchè il carattere percentuale è stato trovato e rimosso, di conseguenza new_campo è un numero
 					{
 						Valori.add(Double.parseDouble(new_campo)); // conversione di new_campo in double e successiva aggiunta alla lista dei valori
 					}
@@ -89,7 +91,7 @@ public class Parsing {
 		}
 		System.out.println("Parsing completato.\n");
 		// stampa del contenuto delle due liste
-		/*System.out.println("Stampa lista degli indici:\n");
+		System.out.println("Stampa lista degli indici:\n");
 		for(String indice : Indici)
 		{
 			System.out.println(indice + "\n");
@@ -98,14 +100,14 @@ public class Parsing {
 		for(double valore : Valori)
 		{
 			System.out.println(valore + "\n");
-		}*/
+		}
 	}
 	// metodi per la restituzione delle liste
-	public List<String> getIndici()
+	public ArrayList<String> getIndici()
 	{
 		return Indici;
 	}
-	public List<Double> getValori()
+	public ArrayList<Double> getValori()
 	{
 		return Valori;
 	}
