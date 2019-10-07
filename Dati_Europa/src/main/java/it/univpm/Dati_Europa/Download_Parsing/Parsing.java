@@ -19,10 +19,11 @@ import org.json.simple.JSONValue;
 import org.json.simple.parser.ParseException;
 
 public class Parsing {
-	ArrayList <String> Indici = new ArrayList <String>(); //lista che conterrÃ  gli indici che descrivono i paesi nel csv
-	ArrayList <Double> Valori = new ArrayList <Double>(); //lista che conterrÃ  i valori relativi agli indici per tutti i paesi del csv
+	ArrayList <String> Indici = new ArrayList <String>(); //lista che conterrï¿½ gli indici che descrivono i paesi nel csv
+	ArrayList <Double> Valori = new ArrayList <Double>(); //lista che conterrï¿½ i valori relativi agli indici per tutti i paesi del csv
 	private static final String DELIMETER_1 = "," ; // carattere separatore
-	private static final String DELIMETER_2 = "%" ; // carattere che permetterÃ  di distinguere i double dalle stringhe
+	private static final String DELIMETER_2 = "%" ; // carattere che permetterï¿½ di distinguere i double dalle stringhe
+	private static final String DELIMETER_3 = ",,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,," ; // separatori delle macrocategorie
 	public Parsing(String link)
 	{
 		String riga = "" ;
@@ -36,10 +37,9 @@ public class Parsing {
 			br = new BufferedReader(new InputStreamReader(urlCSV.openStream()));
 			while (((riga = br.readLine()) != null) && !bool2)
 			{
-				System.out.println(riga);
-				/*if (conta == limite) 
+				if (conta == limite) 
 				{
-					bool2= true;  // esce dal ciclo quando la variabile count è uguale a limit
+					bool2= true;  // esce dal ciclo quando la variabile count ï¿½ uguale a limit
 				}
 				if (!bool1)
 				{
@@ -50,15 +50,19 @@ public class Parsing {
 				for(String campo : Campi)
 				{
 					String new_campo = campo.replace(DELIMETER_2,""); // a tutti gli elementi del vettore di stringhe verrÃ  rimosso il carattere percentuale, se presente
-					if(campo.equals(new_campo)) // se campo e new_campo sono uguali è perchè non è stato rimosso il carattere percentuale, in quanto non presente e quindi campo è uno degli indici
+					if(campo.equals(new_campo)) // se campo e new_campo sono uguali Ã¨ perchÃ¨ non Ã¨ stato rimosso il carattere percentuale, in quanto non presente e quindi campo ï¿½ uno degli indici
 					{
 						Indici.add(new_campo); // aggiunta alla lista degli indici
 					}
-					else // se sono diversi è perchè il carattere percentuale è stato trovato e rimosso, di conseguenza new_campo è un numero
+					else // se sono diversi perchÃ¨ il carattere percentuale Ã¨ stato trovato e rimosso, di conseguenza new_campo ï¿½ un numero
 					{
 						Valori.add(Double.parseDouble(new_campo)); // conversione di new_campo in double e successiva aggiunta alla lista dei valori
 					}
-				}*/
+				}
+				if(br.readLine() == DELIMETER_3)
+				{
+					
+				}
 				conta++;
 			}
 		}
@@ -84,9 +88,9 @@ public class Parsing {
 				}
 			}
 		}
-		/*System.out.println("Parsing completato.\n");
+		System.out.println("Parsing completato.\n");
 		// stampa del contenuto delle due liste
-		System.out.println("Stampa lista degli indici:\n");
+		/*System.out.println("Stampa lista degli indici:\n");
 		for(String indice : Indici)
 		{
 			System.out.println(indice + "\n");
