@@ -19,7 +19,6 @@ import java.util.List;
 //import org.json.simple.parser.ParseException;
 
 public class Parsing {
-	ArrayList <String> Campi = new ArrayList <String>();
 	
 	ArrayList <String> Indici = new ArrayList <String>(); //lista che conterrà gli indici che descrivono i paesi nel csv
 	ArrayList <Double> Valori = new ArrayList <Double>(); //lista che conterrà i valori relativi agli indici per tutti i paesi del csv

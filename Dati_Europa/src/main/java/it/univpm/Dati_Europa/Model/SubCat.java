@@ -1,18 +1,34 @@
 //una sottocategoria contiene una mappa con i dati dei vari paesi;
 package it.univpm.Dati_Europa.Model;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
-
-import it.univpm.Dati_Europa.Model.MainCat;
 
 public class SubCat 
 {
 	private String nameSub="";
-	private Map <String, Double> paesi = new HashMap <String, Double> (35); //creo una HashMap di paesi
+	private ArrayList<String> nPaesi;
+	private ArrayList<Double> datiPaesi;
+	
+	//private Map <String, Double> paesi = new HashMap <String, Double> (35); //creo una HashMap di paesi
 	
 	public SubCat()
 	{
-		paesi.put("EU27", null);
+		nPaesi.add("EU27");
+		nPaesi.add("Belgium");
+		nPaesi.add("Bulgaria");
+		/*nPaesi.add("EU27");
+		nPaesi.add("EU27");
+		nPaesi.add("EU27");
+		nPaesi.add("EU27");
+		nPaesi.add("EU27");
+		nPaesi.add("EU27");
+		nPaesi.add("EU27");
+		nPaesi.add("EU27");
+		nPaesi.add("EU27");
+		nPaesi.add("EU27");*/
+		
+		/*paesi.put("EU27", null);
 		paesi.put("Belgium", null);
 		paesi.put("Bulgaria", null);
 		paesi.put("Czech Republic", null);
@@ -27,22 +43,29 @@ public class SubCat
 		paesi.put("Cyprus", null);
 		paesi.put("Latvia", null);
 		paesi.put("Lithuania", null);
-		paesi.put("Luxembourg", null);  //ho scritto solo 16 paesi.
+		paesi.put("Luxembourg", null);  //ho scritto solo 16 paesi.*/
 	}
 
 	public String getNameSub() {
 		return nameSub;
 	}
 
-	public void setNameSub(String nameSub) {
+	public void setnameSub(String nameSub) {
 		this.nameSub = nameSub;
 	}
 	
-	public void setData(String paese, double dato)
+	public void setData(ArrayList <Double> data)
 	{
-		paesi.replace(paese, dato);
+		
+		
+		
+		
+		
+		
 	}
-	//scrivere metodo per stampare la mappa;
 	
-
+	public Map<String, Double> getPaesi() //restituisce la mappa con chiave e valore
+	{
+		return paesi;
+	}
 }

@@ -3,6 +3,7 @@ package it.univpm.Dati_Europa.Model;
 import java.util.ArrayList;
 import it.univpm.Dati_Europa.Model.SubCat;
 
+
 public class MainCat {
 	 private int Nsubcat; //numero delle sottocategorie
 	 private String nameCat; //nome della macrocategoria
@@ -13,15 +14,28 @@ public class MainCat {
 	 {
 		 this.nameCat=nameCat;
 		 this.Nsubcat=Nsubcat;
-		 data= new ArrayList<SubCat> (Nsubcat);
+		 data=new ArrayList<SubCat> (Nsubcat);
+	 }
+	 //metodo che permette di attribuire i nomi alle sottocategorie
+	 public void SubcatNames(ArrayList <String> names)
+	 {
+		 for(int i=0;i<Nsubcat;i++)
+		 {
+			 data.get(i).setnameSub(names.get(i+1));
+			 //l'array names è formato da Nsubcat+1 elementi
+		 }
 	 }
 
-	public ArrayList<SubCat> getData() {
-		return data;
-	}
-
-	public void setData(ArrayList<SubCat> data) {
-		this.data = data;
+	public void SubcatDati(ArrayList <Double> dati, String nameSubcat)
+	{
+		for(SubCat a:data) //scorro gli elementi di data
+		{
+			for(int i=0;i<dati.size();i++)
+			{
+				
+			}
+			
+		}
 	}
 
 	public int getNsubcat() {
@@ -39,5 +53,5 @@ public class MainCat {
 	public void setNameCat(String nameCat) {
 		this.nameCat = nameCat;
 	}
-
+	
 }
