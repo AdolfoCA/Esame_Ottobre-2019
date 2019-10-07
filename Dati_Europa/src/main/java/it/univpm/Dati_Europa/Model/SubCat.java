@@ -1,5 +1,5 @@
+//una sottocategoria contiene una mappa con i dati dei vari paesi;
 package it.univpm.Dati_Europa.Model;
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -7,12 +7,11 @@ import it.univpm.Dati_Europa.Model.MainCat;
 
 public class SubCat 
 {
-	private String nameSub;
+	private String nameSub="";
 	private Map <String, Double> paesi = new HashMap <String, Double> (35); //creo una HashMap di paesi
 	
-	public SubCat(String nameSub)
+	public SubCat()
 	{
-		this.nameSub=nameSub;
 		paesi.put("EU27", null);
 		paesi.put("Belgium", null);
 		paesi.put("Bulgaria", null);
@@ -43,5 +42,7 @@ public class SubCat
 	{
 		paesi.replace(paese, dato);
 	}
+	//scrivere metodo per stampare la mappa;
+	
 
 }

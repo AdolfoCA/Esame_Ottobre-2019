@@ -17,6 +17,8 @@ import java.util.List;
 //import org.json.simple.parser.ParseException;
 
 public class Parsing {
+	ArrayList <String> Campi = new ArrayList <String>();
+	
 	ArrayList <String> Indici = new ArrayList <String>(); //lista che conterrà gli indici che descrivono i paesi nel csv
 	ArrayList <Double> Valori = new ArrayList <Double>(); //lista che conterrà i valori relativi agli indici per tutti i paesi del csv
 	private static final String DELIMETER_1 = "," ; // carattere separatore
@@ -43,7 +45,11 @@ public class Parsing {
 					bool1 = true;
 					continue; // permette di saltare la prima riga del csv
 				}
-				String[] Campi = riga.split(DELIMETER_1);  // dopo aver letto una riga del csv la divide ogni volta che trova il carattere separatore ","
+				
+				String[] Campi = riga.split(DELIMETER_1); // dopo aver letto una riga del csv la divide ogni volta che trova il carattere separatore ","
+				System.out.println(Campi);
+				
+				
 				for(String campo : Campi)
 				{
 					String new_campo = campo.replace(DELIMETER_2,""); // a tutti gli elementi del vettore di stringhe verrà rimosso il carattere percentuale, se presente
