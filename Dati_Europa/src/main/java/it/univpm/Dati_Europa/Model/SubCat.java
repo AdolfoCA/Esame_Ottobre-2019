@@ -14,38 +14,46 @@ public class SubCat
 	
 	public SubCat()
 	{
+		datiPaesi=new ArrayList <Double> (); //array di dati relativi a ciascun paese
+		//costruisco l'array con i nomi dei paesi
 		nPaesi.add("EU27");
 		nPaesi.add("Belgium");
 		nPaesi.add("Bulgaria");
-		/*nPaesi.add("EU27");
-		nPaesi.add("EU27");
-		nPaesi.add("EU27");
-		nPaesi.add("EU27");
-		nPaesi.add("EU27");
-		nPaesi.add("EU27");
-		nPaesi.add("EU27");
-		nPaesi.add("EU27");
-		nPaesi.add("EU27");
-		nPaesi.add("EU27");*/
+		nPaesi.add("Czech Republic");
+		nPaesi.add("Denmark");
+		nPaesi.add("Germany");
+		nPaesi.add("Estonia");
+		nPaesi.add("Greece");
+		nPaesi.add("Spain");
+		nPaesi.add("France");
+		nPaesi.add("Ireland");
+		nPaesi.add("Italy");
+		nPaesi.add("Cyprus");
+		nPaesi.add("Latvia");
+		nPaesi.add("Lithuania");
+		nPaesi.add("Luxembourg");
+		nPaesi.add("Hungary");
+		nPaesi.add("Malta");
+		nPaesi.add("Netherlands");
+		nPaesi.add("Austria");
+		nPaesi.add("Poland");
+		nPaesi.add("Portugal");
+		nPaesi.add("Romania");
+		nPaesi.add("Slovenia");
+		nPaesi.add("Slovakia");
+		nPaesi.add("Finland");
+		nPaesi.add("Sweden");
+		nPaesi.add("United Kingdom");
+		nPaesi.add("Croatia");
+		nPaesi.add("FYROM");
+		nPaesi.add("Turkey");
+		nPaesi.add("Norway");
+		nPaesi.add("Albania");
+		nPaesi.add("Kosovo");
+		nPaesi.add("Montenegro");
 		
-		/*paesi.put("EU27", null);
-		paesi.put("Belgium", null);
-		paesi.put("Bulgaria", null);
-		paesi.put("Czech Republic", null);
-		paesi.put("Denmark", null);
-		paesi.put("Germany", null);
-		paesi.put("Estonia", null);
-		paesi.put("Greece", null);
-		paesi.put("Spain", null);
-		paesi.put("France", null);
-		paesi.put("Ireland", null);
-		paesi.put("Italy", null);
-		paesi.put("Cyprus", null);
-		paesi.put("Latvia", null);
-		paesi.put("Lithuania", null);
-		paesi.put("Luxembourg", null);  //ho scritto solo 16 paesi.*/
 	}
-
+    
 	public String getNameSub() {
 		return nameSub;
 	}
@@ -54,18 +62,24 @@ public class SubCat
 		this.nameSub = nameSub;
 	}
 	
-	public void setData(ArrayList <Double> data)
+    //dato il paese restituisce il dato relativo a quel paese rispetto alla sottocategoria
+	public double getDatoPaese(String paese) 
 	{
-		
-		
-		
-		
-		
+		int i=nPaesi.lastIndexOf(paese); //determina l'indice dell'arraynPaesi relativo al paese selezionato
+		return datiPaesi.get(i); //restituisce il dato relativo a quel paese
+	}
+	//restituisce l'array con i dati
+	public ArrayList<Double> getDati(ArrayList<Double> datiPaesi)
+	{
+		return datiPaesi;
 		
 	}
 	
-	public Map<String, Double> getPaesi() //restituisce la mappa con chiave e valore
+    //metodo che assegna i valori dei dati della sottocategoria
+	public void setDatiPaesi(ArrayList<Double> datiPaesi) 
 	{
-		return paesi;
+		this.datiPaesi = datiPaesi;
 	}
+
+
 }
