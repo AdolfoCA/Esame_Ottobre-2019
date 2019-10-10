@@ -6,6 +6,8 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.io.InputStream;
 import it.univpm.Dati_Europa.Download_Parsing.*;
+import it.univpm.Dati_Europa.Model.MainCat;
+
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.net.URL;
@@ -19,14 +21,16 @@ import org.json.simple.JSONValue;
 import org.json.simple.parser.ParseException;
 
 public class Parsing {
-	ArrayList <String> Indici = new ArrayList <String>(); //lista che conterra'  gli indici che descrivono i paesi nel csv
-	ArrayList <Double> Valori = new ArrayList <Double>(); //lista che conterra'  i valori relativi agli indici per tutti i paesi del csv
-	ArrayList <MainCat> Categorie = new ArrayList <MainCat>(); //lista di oggetti
+	private ArrayList <String> Indici = new ArrayList <String>(); //lista che conterra'ï¿½ gli indici che descrivono i paesi nel csv
+	private ArrayList <Double> Valori = new ArrayList <Double>(); //lista che conterra'ï¿½ i valori relativi agli indici per tutti i paesi del csv
+	private ArrayList <MainCat> Categorie = new ArrayList <MainCat>(); //lista di oggetti
+	private int numCat;
 	private static final String DELIMETER_1 = "," ; // carattere separatore
 	private static final String DELIMETER_2 = "%" ; // carattere che permettera' di distinguere i double dalle stringhe
 	private static final String DELIMETER_3 = ",,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,," ; // separatori delle macrocategorie
 	public Parsing(String link)
 	{
+		numCat=0;
 		String riga = "" ;
 		BufferedReader br= null;
 		boolean bool1= false, bool2= false;
@@ -54,21 +58,22 @@ public class Parsing {
 				
 				for(String campo : Campi)
 				{
-					String new_campo = campo.replace(DELIMETER_2,""); // a tutti gli elementi del vettore di stringhe verra'  rimosso il carattere percentuale, se presente
+					String new_campo = campo.replace(DELIMETER_2,""); // a tutti gli elementi del vettore di stringhe verra'ï¿½ rimosso il carattere percentuale, se presente
 					if(campo.equals(new_campo)) // se campo e new_campo sono uguali e' perche' non e' stato rimosso il carattere percentuale, in quanto non presente e quindi campo e' uno degli indici
 					{
 						Indici.add(new_campo); // aggiunta alla lista degli indici
 					}
-					else // se sono diversi perchè il carattere percentuale e' stato trovato e rimosso, di conseguenza new_campo e' un numero
+					else // se sono diversi perchï¿½ il carattere percentuale e' stato trovato e rimosso, di conseguenza new_campo e' un numero
 					{
 						Valori.add(Double.parseDouble(new_campo)); // conversione di new_campo in double e successiva aggiunta alla lista dei valori
 					}
 				}
 				if(riga.equals(DELIMETER_3))	//queste operazioni verranno eseguite ogni volta che nel csv si troveranno le virgole che separano una categoria dall'altra
 				{
-					Categorie.add(new MainCat(Indici[0], (Indici.size)-1 ));	//salva il nome della macrocategoria
-					Categorie.SubcatNames(Indici);	//salva i nomi della sottocategorie
-					Categorie.SubcatDati(Valori);	//salva i valori percentuali
+					Categorie.add(new MainCat(Indici.get(0), (Indici.size())-1 ));//salva il nome della macrocategoria
+					Categorie.get(numCat).SubcatNames(Indici);	//salva i nomi della sottocategorie
+					Categorie.get(numCat).SubcatDati(Valori);//salva i valori percentuali
+					numCat++; //mi serve per capire a quale elemento dell'array categorie accedere
 					//svuotamento delle due liste
 					Indici.clear();
 					Valori.clear();
@@ -111,13 +116,11 @@ public class Parsing {
 			System.out.println(valore + "\n");
 		}*/
 	}
-	// metodi per la restituzione delle liste
-	public ArrayList<String> getIndici()
+	// metodi per la restituzione della lista
+	public ArrayList <MainCat> getData()
 	{
-		return Indici;
+		return Categorie;
+		
 	}
-	public ArrayList<Double> getValori()
-	{
-		return Valori;
-	}
+	
 }

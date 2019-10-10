@@ -80,6 +80,4 @@ public class SubCat
 	{
 		this.datiPaesi = datiPaesi;
 	}
-
-
 }

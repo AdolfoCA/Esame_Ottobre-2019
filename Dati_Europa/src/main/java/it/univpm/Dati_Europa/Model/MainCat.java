@@ -53,5 +53,5 @@ public class MainCat {
 	public ArrayList<SubCat> getSottocategorie() {
 		return sottocategorie;
 	}
-
+ 
 }
