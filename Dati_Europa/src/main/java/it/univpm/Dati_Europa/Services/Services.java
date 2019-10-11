@@ -21,10 +21,10 @@ public class Services {
 	
 	public Services()
 	{
-		d1 = new Download(urlDataset);
+		/*d1 = new Download(urlDataset);
 		String urlCsv;
-		urlCsv = d1.Getlink();
-		p1 = new Parsing(urlCsv);
+		urlCsv = d1.Getlink();*/
+		p1 = new Parsing();
 		lista=p1.getData();
 		MD=new Metadata(lista);
 	}
