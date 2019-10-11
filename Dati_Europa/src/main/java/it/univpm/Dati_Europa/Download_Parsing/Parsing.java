@@ -53,7 +53,7 @@ public class Parsing {
 				}
 				
 				String[] Campi = riga.split(DELIMETER_1); // dopo aver letto una riga del csv la divide ogni volta che trova il carattere separatore ","
-				System.out.println(Campi);
+				//System.out.println(Campi);
 				
 				
 				for(String campo : Campi)
@@ -77,8 +77,7 @@ public class Parsing {
 					//svuotamento delle due liste
 					Indici.clear();
 					Valori.clear();
-				}
-				conta++;
+				} conta++;
 			}
 		}
 		catch (FileNotFoundException e)
@@ -208,7 +207,6 @@ public class Parsing {
 	public ArrayList <MainCat> getData()
 	{
 		return Categorie;
-		
 	}
 	
 }
