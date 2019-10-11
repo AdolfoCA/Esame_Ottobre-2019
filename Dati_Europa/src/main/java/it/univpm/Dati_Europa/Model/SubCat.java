@@ -2,11 +2,12 @@
 package it.univpm.Dati_Europa.Model;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 public class SubCat 
 {
-	private String nameSub="";
+	private String nameSub;
 	private ArrayList<String> nPaesi;
 	private ArrayList<Double> datiPaesi;
 	
@@ -14,7 +15,13 @@ public class SubCat
 	
 	public SubCat()
 	{
-		datiPaesi=new ArrayList <Double> (); //array di dati relativi a ciascun paese
+		this.nameSub="";
+		this.datiPaesi=new ArrayList <Double> ();//array di dati relativi a ciascun paese
+		/*for(int i=0;i<35;i++)
+		{
+			datiPaesi.add(null);
+		}*/
+		this.nPaesi=new ArrayList <String>();//array di paesi
 		//costruisco l'array con i nomi dei paesi
 		nPaesi.add("EU27");
 		nPaesi.add("Belgium");
@@ -72,12 +79,14 @@ public class SubCat
 	public ArrayList<Double> getDati(ArrayList<Double> datiPaesi)
 	{
 		return datiPaesi;
-		
 	}
 	
     //metodo che assegna i valori dei dati della sottocategoria
-	public void setDatiPaesi(ArrayList<Double> datiPaesi) 
+	public void setDatiPaesi(List<Double> datiPaesi) 
 	{
-		this.datiPaesi = datiPaesi;
+		for(int i=0;i<datiPaesi.size();i++)
+		{
+			this.datiPaesi.add(datiPaesi.get(i));
+		}
 	}
 }
