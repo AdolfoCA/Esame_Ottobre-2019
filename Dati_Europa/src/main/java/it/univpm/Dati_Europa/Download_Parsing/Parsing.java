@@ -119,6 +119,7 @@ public class Parsing {
 	{
 		numCat=0;
 		String riga = "" ;
+		String testo = "";
 		BufferedReader br= null;
 		boolean bool1= false, bool2= false;
 		int limite=546;
@@ -127,9 +128,16 @@ public class Parsing {
 		{
 			//URL urlCSV = new URL(link);
 			br = new BufferedReader(new FileReader("C:/Users/andre/Desktop/UNIVERSITA'/Programmazione ad oggetti/Lavori/table5.csv"));
-			while (((riga = br.readLine()) != null) && !bool2)
+			while ((riga = br.readLine()) != null)
 			{
-				if (conta == limite) 
+				if(conta==1)
+				{
+					conta++;
+					continue;
+				}
+				testo += riga;
+				conta++;
+				/*if (conta == limite) 
 				{
 					bool2= true;  // esce dal ciclo quando la variabile count e' uguale a limit
 				}
@@ -164,8 +172,31 @@ public class Parsing {
 					//svuotamento delle due liste
 					Indici.clear();
 					Valori.clear();
+				}*/	
+			}
+			String[] MacroCategorie = testo.split(DELIMETER_3);
+			for(String MacroCategoria : MacroCategorie)
+			{
+				String[] Campi = MacroCategoria.split(DELIMETER_1);
+				for(String campo : Campi)
+				{
+					String new_campo = campo.replace(DELIMETER_2,""); // a tutti gli elementi del vettore di stringhe verra'� rimosso il carattere percentuale, se presente
+					if(campo.equals(new_campo)) // se campo e new_campo sono uguali e' perche' non e' stato rimosso il carattere percentuale, in quanto non presente e quindi campo e' uno degli indici
+					{
+						Indici.add(new_campo); // aggiunta alla lista degli indici
+					}
+					else // se sono diversi perch� il carattere percentuale e' stato trovato e rimosso, di conseguenza new_campo e' un numero
+					{
+						Valori.add(Double.parseDouble(new_campo)); // conversione di new_campo in double e successiva aggiunta alla lista dei valori
+					}
 				}
-				conta++;
+				Categorie.add(new MainCat(Indici.get(0), (Indici.size())-1 ));//salva il nome della macrocategoria
+				Categorie.get(numCat).SubcatNames(Indici);	//salva i nomi della sottocategorie
+				Categorie.get(numCat).SubcatDati(Valori);//salva i valori percentuali
+				numCat++; //mi serve per capire a quale elemento dell'array categorie accedere
+				//svuotamento delle due liste
+				Indici.clear();
+				Valori.clear();
 			}
 		}
 		catch (FileNotFoundException e)
