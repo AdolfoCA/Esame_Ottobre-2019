@@ -2,6 +2,7 @@ package it.univpm.Dati_Europa.Services;
 
 
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
@@ -16,7 +17,7 @@ public class Services {
 	private String urlDataset = "http://data.europa.eu/euodp/data/api/3/action/package_show?id=fifth-european-working-conditions-survey-2010";
 	private Download d1;
 	private Parsing p1;
-	private List<MainCat> lista;
+	private ArrayList<MainCat> lista;
 	private Metadata MD;
 	
 	public Services()
@@ -25,15 +26,17 @@ public class Services {
 		String urlCsv;
 		urlCsv = d1.Getlink();
 		p1 = new Parsing(urlCsv);
-		MD=new Metadata(lista);
+		lista=p1.getData();
+		//MD=new Metadata(lista);
 	}
+	
 	//restituisce i metadata
 	public List<Map> getMetadata() 
 	{
 		return MD.getMetadata();
 	}
 	//restituisce i dati del csv
-	public List<MainCat> getData() 
+	public ArrayList<MainCat> Dati() 
 	{
  		return this.lista;
 	}

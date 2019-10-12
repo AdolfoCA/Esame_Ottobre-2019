@@ -1,5 +1,6 @@
 package it.univpm.Dati_Europa.Controller;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
@@ -7,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import it.univpm.Dati_Europa.Model.MainCat;
 import it.univpm.Dati_Europa.Services.Services;
 
 @RestController
@@ -24,9 +26,9 @@ public class Europa_Data_Controller
 	//@GetMapping, con una chiamata di tipo GET otteniamo l'accesso ad una risorsa specifica
 	//@RequestParam, permette di passare un parametro in ingresso
 	@GetMapping("/Dati")
-	public List getAllData()
+	public ArrayList <MainCat> getAllData()
 	{
-		return servizio.getData();
+		return servizio.Dati();
 	}
 	//Metodo che gestisce la richiesta GET alla rotta "/Metadati", restituisce i metadati
 	//@return lista dei metadata

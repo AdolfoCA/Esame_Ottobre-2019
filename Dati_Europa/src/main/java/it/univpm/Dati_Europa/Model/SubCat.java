@@ -70,15 +70,21 @@ public class SubCat
 	}
 	
     //dato il paese restituisce il dato relativo a quel paese rispetto alla sottocategoria
-	public double getDatoPaese(String paese) 
+	/*public double getDatoPaese(String paese) 
 	{
 		int i=nPaesi.lastIndexOf(paese); //determina l'indice dell'arraynPaesi relativo al paese selezionato
 		return datiPaesi.get(i); //restituisce il dato relativo a quel paese
-	}
-	//restituisce l'array con i dati
-	public ArrayList<Double> getDati(ArrayList<Double> datiPaesi)
+	}*/
+	
+	//restituisce hashmap con i dati relativi al paese
+	public Map <String, Double> getDati()
 	{
-		return datiPaesi;
+		Map<String,Double> Dati = new HashMap <String,Double>();
+		for(int i=0;i<nPaesi.size();i++)
+		{
+			Dati.put(this.nPaesi.get(i),this.datiPaesi.get(i));
+		}
+		return Dati;
 	}
 	
     //metodo che assegna i valori dei dati della sottocategoria

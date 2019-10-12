@@ -64,6 +64,7 @@ public class Parsing {
 							longCat += Campi[i];
 						} while(!Campi[i].contains(DELIMETER_4));
 						Indici.add(longCat);
+						longCat="";
 						continue;
 					}
 					if(i==0)
@@ -72,6 +73,39 @@ public class Parsing {
 						continue;
 					}
 					String new_campo = Campi[i].replace(DELIMETER_2,""); // a tutti gli elementi del vettore di stringhe verra' rimosso il carattere percentuale, se presente
+					//gestione delle anomalie del csv
+					//gestisce la particolare riga q72.Number of days of health-related absence in past 12 months
+					if(Campi[0].equals(" q72. Number of days of health-related absence in past 12 months  "))
+					{
+						Indici.add(Campi[1]);
+						for(i=2;i<Campi.length;i++)
+						{
+							Valori.add(Double.parseDouble(Campi[i]));
+						}
+						  break;
+					}
+					//gestisce la particolare riga index 16. Workplace innovation - workers involvement (1 = lowest, 5 = highest)
+					if (Campi[0].contains("\" index 16. Workplace innovation - workers involvement (1 = lowest"))
+					{
+						Indici.add(Campi[2]);
+						for(i=3;i<Campi.length;i++)
+						{
+							Valori.add(Double.parseDouble(Campi[i]));
+						}
+						 break;
+					}
+					//gestisce la particolare riga q18. Usual weekly working hours
+					if(Campi[0].equals(" q18. Usual weekly working hours  "))
+					{
+						Indici.add(Campi[1]);
+						for(i=2;i<Campi.length;i++)
+						{
+							Valori.add(Double.parseDouble(Campi[i]));
+						}
+						 break;
+					}
+					//////////////
+					
 					if((new_campo.contains(DELIMETER_5))) //se il campo contiene il punto si tratta di un numero, altrimenti si considera come il nome di un indice
 					{
 						Valori.add(Double.parseDouble(new_campo)); // conversione di new_campo in double e successiva aggiunta alla lista dei valori

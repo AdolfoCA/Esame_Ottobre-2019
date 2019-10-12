@@ -42,9 +42,9 @@ public class MainCat {
 		}
 	}
 	
-	public int getNsubcat() {
+	/*public int getNsubcat() {
 		return Nsubcat;
-	}
+	}*/
 
 	public void setNsubcat(int nsubcat) {
 		Nsubcat = nsubcat;
@@ -58,7 +58,8 @@ public class MainCat {
 		this.nameCat = nameCat;
 	}
 
-	public ArrayList<SubCat> getSottocategorie() {
+	public ArrayList<SubCat> getSottocategorie() 
+	{
 		return sottocategorie;
 	}
  
