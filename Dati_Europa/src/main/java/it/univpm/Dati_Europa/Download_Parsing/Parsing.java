@@ -18,14 +18,15 @@ import java.util.List;
 
 
 public class Parsing {
-	private ArrayList <String> Indici = new ArrayList <String>(); //lista che conterra'� gli indici che descrivono i paesi nel csv
-	private ArrayList <Double> Valori = new ArrayList <Double>(); //lista che conterra'� i valori relativi agli indici per tutti i paesi del csv
+	private ArrayList <String> Indici = new ArrayList <String>(); //lista che conterra' gli indici che descrivono i paesi nel csv
+	private ArrayList <Double> Valori = new ArrayList <Double>(); //lista che conterra' i valori relativi agli indici per tutti i paesi del csv
 	private ArrayList <MainCat> Categorie = new ArrayList <MainCat>(); //lista di oggetti
 	private int numCat;
-	private static final String DELIMETER_1 = "," ; // carattere separatore
+	private static final String DELIMETER_1 = "," ; // carattere separatore principale
 	private static final String DELIMETER_2 = "%" ; // carattere che permettera' di distinguere i double dalle stringhe
 	private static final String DELIMETER_3 = ",,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,," ; // separatori delle macrocategorie
-	private static final String	DELIMETER_4 =  "\"";
+	private static final String	DELIMETER_4 =  "\""; //carattere che ci servira' per distinguere le categorie dal nome piu' lungo con all'interno delle virgole
+	private static final String	DELIMETER_5 =  ".";
 	public Parsing()
 	{
 		numCat=0;
@@ -55,20 +56,25 @@ public class Parsing {
 				String[] Campi = MacroCategoria.split(DELIMETER_1);
 				for(int i=0; i< Campi.length ; i++)
 				{
-					String new_campo = Campi[i].replace(DELIMETER_2,""); // a tutti gli elementi del vettore di stringhe verra'� rimosso il carattere percentuale, se presente
-					if(Campi[i].equals(new_campo)) // se campo e new_campo sono uguali e' perche' non e' stato rimosso il carattere percentuale, in quanto non presente e quindi campo e' uno degli indici
+					if(Campi[i].contains(DELIMETER_4))
 					{
-						if(Campi[i].contains(DELIMETER_4))
+						longCat += Campi[i];
+						do
 						{
+							i++;
 							longCat += Campi[i];
-							do
-							{
-								i++;
-								longCat += Campi[i];
-							} while(!Campi[i].contains(DELIMETER_4));
-							Indici.add(longCat);
-							continue;
-						}
+						} while(!Campi[i].contains(DELIMETER_4));
+						Indici.add(longCat);
+						continue;
+					}
+					if(i==0)
+					{
+						Indici.add(Campi[i]);
+						continue;
+					}
+					String new_campo = Campi[i].replace(DELIMETER_2,""); // a tutti gli elementi del vettore di stringhe verra'� rimosso il carattere percentuale, se presente
+					if(!Campi[i].contains(DELIMETER_5)) // se campo e new_campo sono uguali e' perche' non e' stato rimosso il carattere percentuale, in quanto non presente e quindi campo e' uno degli indici
+					{
 						Indici.add(new_campo); // aggiunta alla lista degli indici
 					}
 					else // se sono diversi perch� il carattere percentuale e' stato trovato e rimosso, di conseguenza new_campo e' un numero
