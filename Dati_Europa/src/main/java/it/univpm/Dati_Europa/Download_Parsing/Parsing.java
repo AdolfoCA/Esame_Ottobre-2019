@@ -33,19 +33,13 @@ public class Parsing {
 		String riga = "" ;
 		String testo = "";
 		BufferedReader br= null;
-		boolean bool1= false, bool2= false;
-		int limite=546;
 		int conta = 1;
 		try
 		{
 			//URL urlCSV = new URL(link);
-
-			br = new BufferedReader(new FileReader("/Users/adolfocafaro/Desktop/table5.csv"));
-			while (((riga = br.readLine()) != null) && !bool2)
-
-			/*br = new BufferedReader(new FileReader("C:/Users/andre/Desktop/UNIVERSITA'/Programmazione ad oggetti/Lavori/table5.csv"));
-			while ((riga = br.readLine()) != null)*/
-
+			//br = new BufferedReader(new FileReader("/Users/adolfocafaro/Desktop/table5.csv"));
+			br = new BufferedReader(new FileReader("C:/Users/andre/Desktop/UNIVERSITA'/Programmazione ad oggetti/Lavori/table5.csv"));
+			while ((riga = br.readLine()) != null)
 			{
 				if(conta==1)
 				{
@@ -54,7 +48,6 @@ public class Parsing {
 				}
 				testo += riga;
 				conta++;
-				
 			}
 			String[] MacroCategorie = testo.split(DELIMETER_3);
 			for(String MacroCategoria : MacroCategorie)
@@ -107,22 +100,10 @@ public class Parsing {
 			}
 		}
 		System.out.println("Parsing completato.\n");
-		// stampa del contenuto delle due liste
-		/*System.out.println("Stampa lista degli indici:\n");
-		for(String indice : Indici)
-		{
-			System.out.println(indice + "\n");
-		}
-		System.out.println("Stampa lista dei valori:\n");
-		for(double valore : Valori)
-		{
-			System.out.println(valore + "\n");
-		}*/
 	}
 	// metodi per la restituzione della lista
 	public ArrayList <MainCat> getData()
 	{
 		return Categorie;
-	}
-	
+	}	
 }
