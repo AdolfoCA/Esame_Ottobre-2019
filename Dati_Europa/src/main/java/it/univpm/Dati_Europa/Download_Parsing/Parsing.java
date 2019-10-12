@@ -25,13 +25,13 @@ public class Parsing {
 	private static final String DELIMETER_1 = "," ; // carattere separatore
 	private static final String DELIMETER_2 = "%" ; // carattere che permettera' di distinguere i double dalle stringhe
 	private static final String DELIMETER_3 = ",,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,," ; // separatori delle macrocategorie
-		int limite=546;
-	
+	private static final String	DELIMETER_4 =  "\"";
 	public Parsing()
 	{
 		numCat=0;
 		String riga = "" ;
 		String testo = "";
+		String longCat = "";
 		BufferedReader br= null;
 		int conta = 1;
 		try
@@ -53,11 +53,22 @@ public class Parsing {
 			for(String MacroCategoria : MacroCategorie)
 			{
 				String[] Campi = MacroCategoria.split(DELIMETER_1);
-				for(String campo : Campi)
+				for(int i=0; i< Campi.length ; i++)
 				{
-					String new_campo = campo.replace(DELIMETER_2,""); // a tutti gli elementi del vettore di stringhe verra'� rimosso il carattere percentuale, se presente
-					if(campo.equals(new_campo)) // se campo e new_campo sono uguali e' perche' non e' stato rimosso il carattere percentuale, in quanto non presente e quindi campo e' uno degli indici
+					String new_campo = Campi[i].replace(DELIMETER_2,""); // a tutti gli elementi del vettore di stringhe verra'� rimosso il carattere percentuale, se presente
+					if(Campi[i].equals(new_campo)) // se campo e new_campo sono uguali e' perche' non e' stato rimosso il carattere percentuale, in quanto non presente e quindi campo e' uno degli indici
 					{
+						if(Campi[i].contains(DELIMETER_4))
+						{
+							longCat += Campi[i];
+							do
+							{
+								i++;
+								longCat += Campi[i];
+							} while(!Campi[i].contains(DELIMETER_4));
+							Indici.add(longCat);
+							continue;
+						}
 						Indici.add(new_campo); // aggiunta alla lista degli indici
 					}
 					else // se sono diversi perch� il carattere percentuale e' stato trovato e rimosso, di conseguenza new_campo e' un numero
