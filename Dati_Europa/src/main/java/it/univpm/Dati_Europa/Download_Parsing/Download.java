@@ -17,6 +17,8 @@ import org.json.simple.parser.ParseException;
 public class Download 
 {
 	private String link = "";
+	private String linkS = "";
+	
 	
 	public Download(String url) {
 		try {
@@ -48,7 +50,10 @@ public class Download
 					if(((String)object1.get("format")).toLowerCase().contains("csv") && ((String)object1.get("url")).contains("table5"))  // estrae il csv desiderato verificando la presenza della stringa table5 nell'url che si vuole estrarre
 						 link = (String)object1.get("url");
 				 }
-			 }			
+			 }	
+			 //aggiungo la s all'interno dell'Url
+			 String [] linkSplittato = link.split(":"); 
+			 linkS=linkSplittato[0]+"s"+":"+linkSplittato[1];
 		} catch (IOException | ParseException e) {
 			e.printStackTrace();
 		} catch (Exception e) {
@@ -56,12 +61,12 @@ public class Download
 		}
 		// azioni di controllo per vedere se tutto è andato a buon fine
 		System.out.println( "\nDownload completato." );
-		System.out.println(link);
+		System.out.println(linkS);
 	}
 	// restituisce il link del csv cercato
 	public String Getlink()
 	{
-		return link;
+		return linkS;
 	}
 
 }
