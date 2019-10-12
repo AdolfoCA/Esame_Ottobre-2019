@@ -27,7 +27,7 @@ public class Parsing {
 	private static final String DELIMETER_3 = ",,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,," ; // separatori delle macrocategorie
 	private static final String	DELIMETER_4 =  "\""; //carattere che ci servira' per distinguere le categorie dal nome piu' lungo con all'interno delle virgole
 	private static final String	DELIMETER_5 =  ".";
-	public Parsing()
+	public Parsing(String link)
 	{
 		numCat=0;
 		String riga = "" ;
@@ -37,9 +37,8 @@ public class Parsing {
 		int conta = 1;
 		try
 		{
-			//URL urlCSV = new URL(link);
-			//br = new BufferedReader(new FileReader("/Users/adolfocafaro/Desktop/table5.csv"));
-			br = new BufferedReader(new FileReader("C:/Users/andre/Desktop/UNIVERSITA'/Programmazione ad oggetti/Lavori/table5.csv"));
+			URL urlCSV = new URL(link);
+	    	br = new BufferedReader(new InputStreamReader(urlCSV.openStream()));
 			while ((riga = br.readLine()) != null)
 			{
 				if(conta==1)
