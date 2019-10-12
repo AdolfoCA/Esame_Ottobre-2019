@@ -20,13 +20,13 @@ import java.util.List;
 public class Parsing {
 	private ArrayList <String> Indici = new ArrayList <String>(); //lista che conterra' gli indici che descrivono i paesi nel csv
 	private ArrayList <Double> Valori = new ArrayList <Double>(); //lista che conterra' i valori relativi agli indici per tutti i paesi del csv
-	private ArrayList <MainCat> Categorie = new ArrayList <MainCat>(); //lista di oggetti
+	private ArrayList <MainCat> Categorie = new ArrayList <MainCat>(); //lista di oggetti MainCat
 	private int numCat;
 	private static final String DELIMETER_1 = "," ; // carattere separatore principale
 	private static final String DELIMETER_2 = "%" ; // carattere che permettera' di distinguere i double dalle stringhe
 	private static final String DELIMETER_3 = ",,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,," ; // separatori delle macrocategorie
-	private static final String	DELIMETER_4 =  "\""; //carattere che ci servira' per distinguere le categorie dal nome piu' lungo con all'interno delle virgole
-	private static final String	DELIMETER_5 =  ".";
+	private static final String	DELIMETER_4 =  "\""; // carattere che ci servira' per distinguere le categorie dal nome piu' lungo con all'interno delle virgole e delimitati dalle virgolette alte
+	private static final String	DELIMETER_5 =  "."; // carattere che ci servira' per distinguere i numeri (o almeno la maggior parte) dai nomi degli indici
 	public Parsing(String link)
 	{
 		numCat=0;
@@ -38,35 +38,37 @@ public class Parsing {
 		try
 		{
 			URL urlCSV = new URL(link);
-	    	br = new BufferedReader(new InputStreamReader(urlCSV.openStream()));
+	    	br = new BufferedReader(new InputStreamReader(urlCSV.openStream())); // inizio lettura del csv dal relativo url, fornito dalla classe Download
 			while ((riga = br.readLine()) != null)
 			{
 				if(conta==1)
 				{
 					conta++;
-					continue;
+					continue; // questo if ci permette di saltare la prima riga, che contiene solo i nomi dei paesi
 				}
-				testo += riga;
+				testo += riga; // ad ogni iterazione viene aggiunta una riga a testo che alla fine conterra' l'intero csv tranne la prima riga
 				conta++;
 			}
-			String[] MacroCategorie = testo.split(DELIMETER_3);
+			String[] MacroCategorie = testo.split(DELIMETER_3); // il csv viene diviso in base a DELIMETER_3 in un array di stringhe
 			for(String MacroCategoria : MacroCategorie)
 			{
-				String[] Campi = MacroCategoria.split(DELIMETER_1);
+				String[] Campi = MacroCategoria.split(DELIMETER_1); // ogni macrocategoria viene a sua volta divisa in base a DELIMETER_1, separando cosi' i numeri dai nomi degli indici che sono pero' ancora tutti nello stesso array
 				for(int i=0; i< Campi.length ; i++)
 				{
+					// condizione per la gestione di macrocategorie in cui il nome e' lungo, presenta virgole ed e' racchiuso da virgolette alte
 					if(Campi[i].contains(DELIMETER_4))
 					{
 						longCat += Campi[i];
 						do
 						{
 							i++;
-							longCat += Campi[i];
+							longCat += Campi[i]; // alla fine del ciclo longCat conterra' l'intero nome della macrocategoria
 						} while(!Campi[i].contains(DELIMETER_4));
-						Indici.add(longCat);
-						longCat="";
-						continue;
+						Indici.add(longCat); // aggiunta di longCat all'ArrayList degli indici
+						longCat = "" ; // azzeramento della stringa 
+						continue; // salto all'iterazione successiva
 					}
+					// condizione per stabilire che il primo elemento dell'array e' sempre il nome della macrocategoria
 					if(i==0)
 					{
 						Indici.add(Campi[i]);
@@ -104,8 +106,6 @@ public class Parsing {
 						}
 						 break;
 					}
-					//////////////
-					
 					if((new_campo.contains(DELIMETER_5))) //se il campo contiene il punto si tratta di un numero, altrimenti si considera come il nome di un indice
 					{
 						Valori.add(Double.parseDouble(new_campo)); // conversione di new_campo in double e successiva aggiunta alla lista dei valori
@@ -118,7 +118,6 @@ public class Parsing {
 				Categorie.add(new MainCat(Indici.get(0), (Indici.size()-1 )));//salva il nome della macrocategoria
 				//per debug
 				//System.out.println(Categorie.get(0).getSottocategorie().size());
-				//
 				(Categorie.get(numCat)).SubcatNames(Indici);//salva i nomi della sottocategorie				
 				(Categorie.get(numCat)).SubcatDati(Valori);//salva i valori percentuali
 				numCat++; //mi serve per capire a quale elemento dell'array categorie accedere
