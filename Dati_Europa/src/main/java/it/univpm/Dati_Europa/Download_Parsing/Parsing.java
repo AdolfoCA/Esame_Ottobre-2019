@@ -71,14 +71,14 @@ public class Parsing {
 						Indici.add(Campi[i]);
 						continue;
 					}
-					String new_campo = Campi[i].replace(DELIMETER_2,""); // a tutti gli elementi del vettore di stringhe verra'� rimosso il carattere percentuale, se presente
-					if(!Campi[i].contains(DELIMETER_5)) // se campo e new_campo sono uguali e' perche' non e' stato rimosso il carattere percentuale, in quanto non presente e quindi campo e' uno degli indici
-					{
-						Indici.add(new_campo); // aggiunta alla lista degli indici
-					}
-					else // se sono diversi perch� il carattere percentuale e' stato trovato e rimosso, di conseguenza new_campo e' un numero
+					String new_campo = Campi[i].replace(DELIMETER_2,""); // a tutti gli elementi del vettore di stringhe verra' rimosso il carattere percentuale, se presente
+					if((new_campo.contains(DELIMETER_5))) //se il campo contiene il punto si tratta di un numero, altrimenti si considera come il nome di un indice
 					{
 						Valori.add(Double.parseDouble(new_campo)); // conversione di new_campo in double e successiva aggiunta alla lista dei valori
+					}
+					else
+					{
+						Indici.add(new_campo); // aggiunta alla lista degli indici
 					}
 				}
 				Categorie.add(new MainCat(Indici.get(0), (Indici.size()-1 )));//salva il nome della macrocategoria
