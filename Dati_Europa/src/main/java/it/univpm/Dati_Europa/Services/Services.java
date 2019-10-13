@@ -13,6 +13,7 @@ import org.springframework.stereotype.Service;
 import it.univpm.Dati_Europa.Download_Parsing.Download;
 import it.univpm.Dati_Europa.Download_Parsing.Parsing;
 import it.univpm.Dati_Europa.Model.MainCat;
+import it.univpm.Dati_Europa.Model.SubCat;
 
 @Service
 public class Services {
@@ -31,6 +32,7 @@ public class Services {
 		p1 = new Parsing(urlCsv);
 		lista=p1.getData();
 		MD=new Metadata(lista);
+		statistiche = new Stats();
 	}
 	
 	//restituisce i metadata
@@ -44,7 +46,7 @@ public class Services {
  		return this.lista;
 	}
 	//Stats (si inserisce la categoria,sottocategoria e paese e viene restituito il dato)
-	public ArrayList <Object> getStats(String MainCat, String SubCat,String paese) 
+	/*public ArrayList <Object> getDato_paese(String MainCat, String SubCat,String paese) 
 	{
 		ArrayList <Object> infoError = new ArrayList <Object> ();
 		infoError.add("Error"); //nel caso ci siano errori nella dichiarazione dei parametri
@@ -64,17 +66,87 @@ public class Services {
 		}
 		map.put(paese, dato);
 		info.add(map);
-		if(info.isEmpty())
+		if(map.get(paese)==0) //se quindi non esiste il paese o la categoria o la sottocategoria
 		{
 			return infoError;
 		}
 		else return info;	
-				
-	  } 
+	}
+	//metodo che restituisce l'array di dati relativi al paese cercato
+	public HashMap ....... getDati_paese (String paese)
+	{
+		ArrayList <Object> infoError = new ArrayList <Object> ();
+		infoError.add("Error");//nel caso ci siano errori nella dichiarazione dei parametri
+		
+		ArrayList <String> nomiMainCat =new ArrayList <String>();
+		ArrayList <Double> dati = new ArrayList <Double> ();
+		
+		
+		HashMap <String, ArrayList<String>> mapNomi = new HashMap <String, ArrayList<String>>();//contiene il nome della macrocategoria e le relative sottocategorie
+		HashMap <HashMap,Double>  mapInfo = new HashMap <HashMap,Double>();//contiene i dati
+		
+		for(int i=0;i<lista.size();i++)
+		{
+			nomiMainCat.add(lista.get(i).getNameCat());
+			ArrayList <String> nomiSubCat;
+			for(int j=0;j<lista.get(i).getSottocategorie().size();j++)
+			{
+				nomiSubCat.add(lista.get(i).getSottocategorie().get(j).getNameSub());
+			    //si viene a formare un array con i nomi delle sottocategoria rispetto a ciascuna categoria
+				//ora devo salvare i dati dei paesi relativi a sottocategorie
+			}
+			mapNomi.put(nomiMainCat.get(i),nomiSubCat);
+		}*/
+		
+		public boolean check(String a , String elemento)
+		{
+			if(a.equals(elemento))
+					return true;
+				else 
+					return false;
+			
+		}
+		public HashMap <String, Double>  Statistiche (String MainCat,String Subcat)
+		{
+			boolean flag1;
+			boolean flag2;
+			ArrayList <Double> dati=new ArrayList <Double>();
+			HashMap <String, Double> stats=new HashMap <String,Double>();
+			for(MainCat c:lista)
+			{
+				flag1=check(c.getNameCat(),MainCat);
+				if(flag1==true)
+				{
+					for(SubCat s: c.getSottocategorie())
+					{
+						flag2=check(s.getNameSub(),Subcat);
+						if(flag2==true)
+						{
+							dati=s.getDatiPaesi();
+							stats.put("Media",statistiche.avg(dati));
+							stats.put("Somma",statistiche.sum(dati));
+							double m=statistiche.max(dati);
+							int i=(s.getDatiPaesi()).indexOf(m);
+							stats.put((s.getnPaesi()).get(i),m);
+							m=statistiche.min(dati);
+							i=(s.getDatiPaesi()).indexOf(m);
+							stats.put((s.getnPaesi()).get(i),m);
+							stats.put("Deviazione Standard",statistiche.DevStd(dati));
+						}
+					}
+				}
+			}
+			if(dati.isEmpty())
+			{
+				stats.put("Error",(double) 0);
+			}
+			return stats;
+		}
+		
+		
+}
 	
 
 
-
-}
 	
 
