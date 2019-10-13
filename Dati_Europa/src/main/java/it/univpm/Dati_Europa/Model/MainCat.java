@@ -1,15 +1,23 @@
-//main container. contiene il nome della categorie e un array di sottocategorie
 package it.univpm.Dati_Europa.Model;
 import java.util.ArrayList;
 import java.util.List;
 
 import it.univpm.Dati_Europa.Model.SubCat;
 
+/**
+ * Classe concepita per modellare le macrocategorie del csv
+*/
 
 public class MainCat {
 	 private int Nsubcat; //numero delle sottocategorie
 	 private String nameCat; //nome della macrocategoria
 	 private ArrayList <SubCat> sottocategorie; //la dim dell'array è pari a Nsubcat
+	 
+	 /**
+	  * Costruttore:
+	  * @param nameCat
+	  * @param Nsubcat
+	 */
 	 
 	 public MainCat(String nameCat, int Nsubcat)
 	 {
@@ -22,7 +30,11 @@ public class MainCat {
 		 }
 	 }
 	 
-	 //metodo che permette di attribuire i nomi alle sottocategorie
+	 /**
+	  * Metodo che permette di attribuire i nomi alle sottocategorie
+	  * @param names, una lista degli indici di una macrocategoria, compreso il nome della stessa
+	 */
+	 
 	 public void SubcatNames(ArrayList <String> names)
 	 {
 		 for(int i=0;i<Nsubcat;i++)
@@ -31,8 +43,13 @@ public class MainCat {
 			 //l'array names è formato da Nsubcat+1 elementi
 		 }
 	 }
-    //metodo che permette di asseganre i dati alle sottocategorie
-	public void SubcatDati(ArrayList <Double> dati)//l'array dati contiene tutti i dati relativi alla macrocategoria
+	 
+    /**
+     * Metodo che permette di assegnare i dati alle sottocategorie
+     * @param dati, una lista di tutti i dati relativi alla macrocategoria
+    */
+	 
+	public void SubcatDati(ArrayList <Double> dati)
 	{
 	  for(int i=0;i<sottocategorie.size();i++) //scorro gli elementi di sottocategorie
 		{
@@ -42,31 +59,33 @@ public class MainCat {
 		}
 	}
 	
-	/*public int getNsubcat() {
-		return Nsubcat;
-	}*/
-
-	public void setNsubcat(int nsubcat) {
-		Nsubcat = nsubcat;
+	/**
+	 * Getter e setter delle variabili Nsubcat, nameCat e la lista sottocategorie
+	*/
+	
+	public void setNsubcat(int Nsubcat) {
+		this.Nsubcat = Nsubcat;
 	}
-
 	public String getNameCat() {
 		return nameCat;
 	}
-
 	public void setNameCat(String nameCat) {
 		this.nameCat = nameCat;
 	}
-
 	public ArrayList<SubCat> getSottocategorie() 
 	{
 		return sottocategorie;
 	}
-	//metodo che restituice la sottocategoria cercata
+	
+	/**
+	 * Metodo che restituice la sottocategoria cercata
+	 * @param nomeSub, nome della sottocategoria
+	 * @return un oggetto della classe SubCat, ossia un elemento dell'array sottocategorie
+	*/
+	
 	public SubCat getSubcat(String nomeSub)
 	{
 		int i=this.sottocategorie.indexOf(nomeSub);
 		return this.sottocategorie.get(i);
 	}
- 
 }

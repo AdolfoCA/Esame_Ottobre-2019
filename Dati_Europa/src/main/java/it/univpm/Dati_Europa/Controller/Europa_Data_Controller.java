@@ -6,6 +6,9 @@ import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import it.univpm.Dati_Europa.Model.MainCat;
@@ -48,10 +51,16 @@ public class Europa_Data_Controller
      * @return lista delle statistiche
 
      */
-/*
-    @GetMapping("/stats")
-
-    public List<Map> getStats(@RequestParam(value = "field", defaultValue = "") String fieldName) {
+	@GetMapping("/Statistiche")
+	public ArrayList<Map> statistiche(@RequestParam(value = "Nome", defaultValue = "") String MainCat, @RequestParam String SubCat)
+	{
+		return null;
+		
+	}
+	
+    //@PostMapping("/Statistiche")
+   // public Map<String,Double> statistiche (@RequestBody)
+   /* public List<Map> getStats(@RequestParam(value = "field", defaultValue = "") String fieldName) {
 
     	Field[] fields = Erasmus.class.getDeclaredFields();
 
@@ -79,7 +88,7 @@ public class Europa_Data_Controller
 
 	}*/
 
-    /*
+    
 
     /**
 
@@ -93,7 +102,7 @@ public class Europa_Data_Controller
 
      */
 
-    /*@PostMapping("/data")
+    @PostMapping("/data")
 
     public List getFilterData(@RequestBody Filter req) {
 
@@ -118,7 +127,7 @@ public class Europa_Data_Controller
      * @return lista delle statistiche dei dati filtrati
 
      */
-/*
+
     @PostMapping("/stats")
 
     public List<Map> getFilterStats(@RequestParam(value = "field", defaultValue = "") String fieldName, @RequestBody Filter req) {
@@ -151,5 +160,5 @@ public class Europa_Data_Controller
 
 		return listaStats;
 
-    }*/
+    }
 }

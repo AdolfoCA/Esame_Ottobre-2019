@@ -14,10 +14,21 @@ import org.json.simple.JSONObject;
 import org.json.simple.JSONValue;
 import org.json.simple.parser.ParseException;
 
+/**
+ * Classe concepita per leggere il contenuto del dataset dall'URL fornitoci ed estrapolare da esso l'URL del csv su cui lavorare in seguito 
+*/
+
 public class Download 
 {
 	private String link = "";
-	private String linkS = "";	
+	private String linkS = "";
+	
+	/**
+	 * Costruttore della classe:
+	 * @param url, corrisponde all'URL del dataset
+	 * all'interno viene trovato l'url del csv desiderato e salvato su una variabile di tipo String
+	*/
+	
 	public Download(String url)
 	{
 		try
@@ -71,7 +82,9 @@ public class Download
 		/* per il debug
 		System.out.println(linkS);*/
 	}
-	// restituisce il link del csv cercato
+	/**
+	 * @return links, questo metodo restituisce la stringa contenente L'URL del csv per renderlo disponibile ad altre parti del codice
+	*/
 	public String Getlink()
 	{
 		return linkS;

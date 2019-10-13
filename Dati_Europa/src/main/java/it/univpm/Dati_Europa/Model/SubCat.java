@@ -1,27 +1,30 @@
-//una sottocategoria contiene una mappa con i dati dei vari paesi;
 package it.univpm.Dati_Europa.Model;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+/**
+ * Classe concepita per modellare le sottocategorie del csv relative ad una macrocategoria
+*/
+
 public class SubCat 
 {
 	private String nameSub;
 	private ArrayList<String> nPaesi;
 	private ArrayList<Double> datiPaesi;
-	
 	//private Map <String, Double> paesi = new HashMap <String, Double> (35); //creo una HashMap di paesi
+	
+	/**
+	 * Costruttore della clesse:
+	 * inizializza un array con i nomi dei paesi
+	*/
 	
 	public SubCat()
 	{
 		this.nameSub="";
-		this.datiPaesi=new ArrayList <Double> ();//array di dati relativi a ciascun paese
-		/*for(int i=0;i<35;i++)
-		{
-			datiPaesi.add(null);
-		}*/
-		this.nPaesi=new ArrayList <String>();//array di paesi
+		this.datiPaesi=new ArrayList <Double> ();	//array di dati relativi a ciascun paese
+		this.nPaesi=new ArrayList <String>();	//array di paesi
 		//costruisco l'array con i nomi dei paesi
 		nPaesi.add("EU27");
 		nPaesi.add("Belgium");
@@ -61,22 +64,36 @@ public class SubCat
 		
 	}
     
+	/**
+	 * Getter e setter di nameSub e getter di datiPaesi
+	*/
+	
 	public String getNameSub() {
 		return nameSub;
 	}
-
 	public void setnameSub(String nameSub) {
 		this.nameSub = nameSub;
 	}
+	public ArrayList<Double> getDatiPaesi() {
+		return datiPaesi;
+	}
 	
-    //dato il paese restituisce il dato relativo a quel paese rispetto alla sottocategoria
+    /**
+     * Metodo che, dato il paese restituisce il dato relativo a quel paese rispetto alla sottocategoria
+     * @param paese, il nome del paese
+     * @return il dato relativo a quel paese
+    */
+	
 	public double getDatoPaese(String paese) 
 	{
 		int i=nPaesi.lastIndexOf(paese); //determina l'indice dell'arraynPaesi relativo al paese selezionato
 		return datiPaesi.get(i); //restituisce il dato relativo a quel paese
 	}
 	
-	//restituisce hashmap con i dati relativi ai paesi
+	/**
+	 * Metodo che restituisce un hashmap con i dati relativi ai paesi
+	 * @return l'hashmap
+	*/
 	public Map <String, Double> getDati()
 	{
 		Map<String,Double> Dati = new HashMap <String,Double>();
@@ -87,7 +104,10 @@ public class SubCat
 		return Dati;
 	}
 	
-    //metodo che assegna i valori dei dati della sottocategoria
+    /**
+     * Metodo che assegna i valori dei dati della sottocategoria
+     * @param datiPaesi, lista dei dati relativi alla sottocategoria
+    */
 	public void setDatiPaesi(List<Double> datiPaesi) 
 	{
 		for(int i=0;i<datiPaesi.size();i++)

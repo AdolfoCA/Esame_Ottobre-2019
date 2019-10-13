@@ -16,6 +16,9 @@ import java.net.URLConnection;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Classe concepita per leggere il contenuto del csv e salvarne il contenuto in apposite strutture
+*/
 
 public class Parsing {
 	private ArrayList <String> Indici = new ArrayList <String>(); //lista che conterra' gli indici che descrivono i paesi nel csv
@@ -27,6 +30,11 @@ public class Parsing {
 	private static final String DELIMETER_3 = ",,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,," ; // separatori delle macrocategorie
 	private static final String	DELIMETER_4 =  "\""; // carattere che ci servira' per distinguere le categorie dal nome piu' lungo con all'interno delle virgole e delimitati dalle virgolette alte
 	private static final String	DELIMETER_5 =  "."; // carattere che ci servira' per distinguere i numeri (o almeno la maggior parte) dai nomi degli indici
+	/**
+	 * Costruttore della classe:
+	 * @param link, la stringa contenente l'URL del csv
+	 * il suo comito e' separare il contenuto del csv in base ai delimitatori, tenendo conto che alcuni elementi vanno considerati come indici che descrivono l'andamento di un paese mentre altri come i valori numerici relativi a tali indici
+	*/
 	public Parsing(String link)
 	{
 		numCat=0;
@@ -150,7 +158,9 @@ public class Parsing {
 		}
 		System.out.println("Parsing completato.\n");
 	}
-	// metodi per la restituzione della lista
+	/**
+	 * @return Categorie, ovvero tutti gli elementi del csv organizzati in modo da renderli utilizzabili da altre parti del codice
+	*/
 	public ArrayList <MainCat> getData()
 	{
 		return Categorie;
