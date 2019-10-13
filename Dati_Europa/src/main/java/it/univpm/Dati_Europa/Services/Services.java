@@ -142,6 +142,35 @@ public class Services {
 			}
 			return stats;
 		}
+		public HashMap<String,HashMap>  Statistiche (String MainCat)
+		{
+			HashMap <String,HashMap> dati = null;
+			HashMap <String,Double> stats = new HashMap<String,Double>();
+			boolean flag1;
+			for(MainCat c:lista)
+			{
+				flag1=check(c.getNameCat(),MainCat);
+				if(flag1==true)
+				{
+					for(SubCat s: c.getSottocategorie())
+					{
+						
+						stats=Statistiche(MainCat,s.getNameSub());
+						dati.put(s.getNameSub(), stats);
+					}
+				}
+			}
+			if(dati.isEmpty())
+			{
+				stats.put("Error",(double) 0);
+				dati.put (MainCat,stats );
+			}
+			return dati;
+		
+	    }
+		
+			
+		
 		
 		
 }
