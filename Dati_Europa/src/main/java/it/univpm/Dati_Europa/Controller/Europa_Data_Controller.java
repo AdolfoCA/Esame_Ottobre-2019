@@ -33,7 +33,7 @@ public class Europa_Data_Controller
 	//Metodo che gestisce la richiesta GET alla rotta "/Metadati", restituisce i metadati
 	//@return lista dei metadata
 	@GetMapping("/Metadati")
-	public List<Map> getMetadata()
+	public ArrayList<Map> getMetadata()
 	{
 		return servizio.getMetadata();
 	}

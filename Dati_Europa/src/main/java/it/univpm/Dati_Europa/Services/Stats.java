@@ -2,7 +2,8 @@ package it.univpm.Dati_Europa.Services;
 
 import java.util.ArrayList;
 
-public class Stats {
+public class Stats 
+{
 	
 	public static int count(ArrayList lista)
 	{
@@ -49,6 +50,5 @@ public class Stats {
 		}
 		return Math.sqrt(somma);
 	}
-	
 
 }

@@ -12,14 +12,14 @@ import java.util.Map;
 
 public class Metadata 
 {
-private ArrayList<Map> metadata = new ArrayList<>();
+private ArrayList<Map> metadata = new ArrayList<Map>();
 	
-	public Metadata(List<MainCat> lista) 
+	public Metadata(ArrayList<MainCat> lista) 
 	{
 
         for ( MainCat c : lista) 
         {
-        	Map<String, String> map = new HashMap<>();
+        	Map<String, String> map = new HashMap<String,String>();
             //andiamo ad inserire le coppie chiave/valore
             map.put("alias", c.getNameCat());
             map.put("sourceField", c.getNameCat());//nome del campo in csv
@@ -33,7 +33,7 @@ private ArrayList<Map> metadata = new ArrayList<>();
 	 * @return lista dei metadati
 	 */
 	
-	public List<Map> getMetadata() 
+	public ArrayList<Map> getMetadata() 
 	 {
 		return metadata;
 	 }

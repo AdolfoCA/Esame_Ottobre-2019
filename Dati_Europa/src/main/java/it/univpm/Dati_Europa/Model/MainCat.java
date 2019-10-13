@@ -62,5 +62,11 @@ public class MainCat {
 	{
 		return sottocategorie;
 	}
+	//metodo che restituice la sottocategoria cercata
+	public SubCat getSubcat(String nomeSub)
+	{
+		int i=this.sottocategorie.indexOf(nomeSub);
+		return this.sottocategorie.get(i);
+	}
  
 }

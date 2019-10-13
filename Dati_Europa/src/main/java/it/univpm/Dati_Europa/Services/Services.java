@@ -2,7 +2,9 @@ package it.univpm.Dati_Europa.Services;
 
 
 
+import java.text.DateFormat.Field;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -19,6 +21,7 @@ public class Services {
 	private Parsing p1;
 	private ArrayList<MainCat> lista;
 	private Metadata MD;
+	private Stats statistiche;
 	
 	public Services()
 	{
@@ -27,11 +30,11 @@ public class Services {
 		urlCsv = d1.Getlink();
 		p1 = new Parsing(urlCsv);
 		lista=p1.getData();
-		//MD=new Metadata(lista);
+		MD=new Metadata(lista);
 	}
 	
 	//restituisce i metadata
-	public List<Map> getMetadata() 
+	public ArrayList<Map> getMetadata() 
 	{
 		return MD.getMetadata();
 	}
@@ -40,5 +43,38 @@ public class Services {
 	{
  		return this.lista;
 	}
+	//Stats (si inserisce la categoria,sottocategoria e paese e viene restituito il dato)
+	public ArrayList <Object> getStats(String MainCat, String SubCat,String paese) 
+	{
+		ArrayList <Object> infoError = new ArrayList <Object> ();
+		infoError.add("Error"); //nel caso ci siano errori nella dichiarazione dei parametri
+		ArrayList <Object> info = new ArrayList <Object> ();
+		info.add(MainCat);
+		info.add(SubCat);
+		//devo trovare in lista l'elemnto il cui nome è MainCat, il parametro passato alla funzione.
+		Map<String, Double> map = new HashMap<>();
+		double dato = 0;
+		for(MainCat c : this.lista)
+		{
+			String nome = c.getNameCat();
+			if(nome.equals(MainCat))
+			{
+				dato=c.getSubcat(SubCat).getDatoPaese(paese);
+			}
+		}
+		map.put(paese, dato);
+		info.add(map);
+		if(info.isEmpty())
+		{
+			return infoError;
+		}
+		else return info;	
+				
+	  } 
 	
+
+
+
 }
+	
+
