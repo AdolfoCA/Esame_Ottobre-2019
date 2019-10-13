@@ -1,6 +1,7 @@
 package it.univpm.Dati_Europa.Controller;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -12,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import it.univpm.Dati_Europa.Model.MainCat;
+import it.univpm.Dati_Europa.Model.SubCat;
 import it.univpm.Dati_Europa.Services.Services;
 
 @RestController
@@ -52,10 +54,24 @@ public class Europa_Data_Controller
 
      */
 	@GetMapping("/Statistiche")
-	public ArrayList<Map> statistiche(@RequestParam(value = "Nome", defaultValue = "") String MainCat, @RequestParam String SubCat)
+	public ArrayList<HashMap> statistiche(@RequestParam(value="Nomi", defaultValue="") String[] Nomi)
 	{
-		return null;
-		
+		ArrayList<HashMap> Stats= new ArrayList<HashMap>();
+		if(!(Nomi[0].equals("")))
+		{
+			Stats.add(servizio.Statistiche(Nomi[0], Nomi[1]));
+		}
+		else
+		{
+			for(MainCat M : servizio.Dati())
+			{
+				for(SubCat S : M.getSottocategorie())
+				{
+					Stats.add(servizio.Statistiche(M.getNameCat(), S.getNameSub()));
+				}
+			}
+		}
+		return Stats;
 	}
 	
     //@PostMapping("/Statistiche")
@@ -102,13 +118,13 @@ public class Europa_Data_Controller
 
      */
 
-    @PostMapping("/data")
+   /* @PostMapping("/data")
 
     public List getFilterData(@RequestBody Filter req) {
 
     	return service.getFilterData(req.getFieldName(), req.getOp(), req.getRif());
 
-    }
+    }*/
 
     
 
@@ -128,7 +144,7 @@ public class Europa_Data_Controller
 
      */
 
-    @PostMapping("/stats")
+    /*@PostMapping("/stats")
 
     public List<Map> getFilterStats(@RequestParam(value = "field", defaultValue = "") String fieldName, @RequestBody Filter req) {
 
@@ -160,5 +176,5 @@ public class Europa_Data_Controller
 
 		return listaStats;
 
-    }
+    }*/
 }
