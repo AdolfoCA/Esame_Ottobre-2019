@@ -65,7 +65,7 @@ public class SubCat
 	}
     
 	/**
-	 * Getter e setter di nameSub e getter di datiPaesi
+	 * Getter e setter di nameSub e getter di datiPaesi e nPaesi
 	*/
 	
 	public String getNameSub() {
@@ -76,6 +76,9 @@ public class SubCat
 	}
 	public ArrayList<Double> getDatiPaesi() {
 		return datiPaesi;
+	}
+	public ArrayList<String> getnPaesi() {
+		return nPaesi;
 	}
 	
     /**
