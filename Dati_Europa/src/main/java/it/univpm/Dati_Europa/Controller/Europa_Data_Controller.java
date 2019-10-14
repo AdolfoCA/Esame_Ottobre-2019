@@ -59,7 +59,14 @@ public class Europa_Data_Controller
 		ArrayList<HashMap> Stats= new ArrayList<HashMap>();
 		if(!(Nomi[0].equals("")))
 		{
-			Stats.add(servizio.Statistiche(Nomi[0], Nomi[1]));
+			if(!(Nomi[1].equals("")))
+			{
+				Stats.add(servizio.Statistiche(Nomi[0], Nomi[1]));
+			}
+			else
+			{
+				for(SubCat S : )
+			}
 		}
 		else
 		{
