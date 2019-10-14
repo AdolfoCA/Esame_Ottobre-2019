@@ -74,13 +74,17 @@ public class SubCat
 	public void setnameSub(String nameSub) {
 		this.nameSub = nameSub;
 	}
-	public ArrayList<Double> getDatiPaesi() {
-		return datiPaesi;
-	}
-	public ArrayList<String> getnPaesi() {
-		return nPaesi;
-	}
 	
+	/**
+     * Metodo che, preso il dato restituisce il paese relativo a quel dato rispetto alla sottocategoria
+     * @param dato
+     * @return il paese relativo a quel dato
+    */
+	public String getPaese(double dato)
+	{
+		int i=datiPaesi.indexOf(dato);
+		return nPaesi.get(i);
+	}
     /**
      * Metodo che, dato il paese restituisce il dato relativo a quel paese rispetto alla sottocategoria
      * @param paese, il nome del paese

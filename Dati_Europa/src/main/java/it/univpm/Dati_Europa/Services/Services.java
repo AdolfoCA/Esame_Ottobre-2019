@@ -23,6 +23,7 @@ public class Services {
 	private ArrayList<MainCat> lista;
 	private Metadata MD;
 	private Stats statistiche;
+	private ArrayList<Double>Dati;
 	
 	public Services()
 	{
@@ -33,7 +34,22 @@ public class Services {
 		lista=p1.getData();
 		MD=new Metadata(lista);
 		statistiche = new Stats();
+		Dati=new ArrayList <Double>();
 	}
+	//resituisce l'array con tutti i dati dei vari paesi rispetto ad una sottocategoria
+	private ArrayList <Double> getDatiPaesi(SubCat s)
+	{
+		ArrayList<Double> DatiPaesi= new ArrayList<Double>();
+		ArrayList<String> paesi= new ArrayList<String>();
+		paesi=(ArrayList<String>) s.getDati().keySet();//un array con i nomi dei paesi
+		for(String p : paesi)
+		{
+			DatiPaesi.add(s.getDati().get(p));
+		}
+		return DatiPaesi;
+	}
+	
+	
 	
 	//restituisce i metadata
 	public ArrayList<Map> getMetadata() 
@@ -97,7 +113,7 @@ public class Services {
 			}
 			mapNomi.put(nomiMainCat.get(i),nomiSubCat);
 		}*/
-		
+		//metodo utile per controllare l'esistenza di una macro e sub categoria
 		public boolean check(String a , String elemento)
 		{
 			if(a.equals(elemento))
@@ -106,6 +122,7 @@ public class Services {
 					return false;
 			
 		}
+		//calcola le stastistiche rispetto ad una sottocategoria di una macrocategoria
 		public HashMap <String, Double>  Statistiche (String MainCat,String Subcat)
 		{
 			boolean flag1;
@@ -122,15 +139,13 @@ public class Services {
 						flag2=check(s.getNameSub(),Subcat);
 						if(flag2==true)
 						{
-							dati=s.getDatiPaesi();
+							dati=getDatiPaesi(s);
 							stats.put("Media",statistiche.avg(dati));
 							stats.put("Somma",statistiche.sum(dati));
 							double m=statistiche.max(dati);
-							int i=(s.getDatiPaesi()).indexOf(m);
-							stats.put((s.getnPaesi()).get(i),m);
+							stats.put(s.getPaese(m),m);
 							m=statistiche.min(dati);
-							i=(s.getDatiPaesi()).indexOf(m);
-							stats.put((s.getnPaesi()).get(i),m);
+							stats.put(s.getPaese(m),m);
 							stats.put("Deviazione Standard",statistiche.DevStd(dati));
 						}
 					}
@@ -142,9 +157,10 @@ public class Services {
 			}
 			return stats;
 		}
-		public HashMap<String,HashMap>  Statistiche (String MainCat)
+		//calcola le statistiche rispetto ad una macrocategoria
+		public HashMap<String,HashMap<String,Double>>  Statistiche (String MainCat)
 		{
-			HashMap <String,HashMap> dati = null;
+			HashMap <String,HashMap<String,Double>> dati = new HashMap <String,HashMap<String,Double>>();
 			HashMap <String,Double> stats = new HashMap<String,Double>();
 			boolean flag1;
 			for(MainCat c:lista)
@@ -154,7 +170,6 @@ public class Services {
 				{
 					for(SubCat s: c.getSottocategorie())
 					{
-						
 						stats=Statistiche(MainCat,s.getNameSub());
 						dati.put(s.getNameSub(), stats);
 					}
@@ -168,9 +183,6 @@ public class Services {
 			return dati;
 		
 	    }
-		
-			
-		
 		
 		
 }
