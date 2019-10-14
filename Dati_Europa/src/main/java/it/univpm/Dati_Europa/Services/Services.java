@@ -60,62 +60,47 @@ public class Services {
 	{
  		return this.lista;
 	}
-	//Stats (si inserisce la categoria,sottocategoria e paese e viene restituito il dato)
-	/*public ArrayList <Object> getDato_paese(String MainCat, String SubCat,String paese) 
+	//Si inserisce la categoria,sottocategoria e paese e viene restituito il dato
+	public ArrayList <Object> getDato_paese(String MainCat, String SubCat,String paese) 
 	{
 		ArrayList <Object> infoError = new ArrayList <Object> ();
 		infoError.add("Error"); //nel caso ci siano errori nella dichiarazione dei parametri
 		ArrayList <Object> info = new ArrayList <Object> ();
-		info.add(MainCat);
-		info.add(SubCat);
 		//devo trovare in lista l'elemnto il cui nome è MainCat, il parametro passato alla funzione.
 		Map<String, Double> map = new HashMap<>();
 		double dato = 0;
-		for(MainCat c : this.lista)
+		for(MainCat c:lista)
 		{
-			String nome = c.getNameCat();
-			if(nome.equals(MainCat))
+			boolean flag1 = check(c.getNameCat(),MainCat);
+			if(flag1==true)
 			{
-				dato=c.getSubcat(SubCat).getDatoPaese(paese);
+				for(SubCat s: c.getSottocategorie())
+				{
+					boolean flag2 = check(s.getNameSub(),SubCat);
+					if(flag2==true)
+					{
+						info.add(MainCat);
+						info.add(SubCat);
+						dato=s.getDatoPaese(paese);
+						if(dato==0)
+						{
+							return infoError;
+						}
+						map.put(paese, dato);
+						info.add(map);
+					}
+				}
 			}
 		}
-		map.put(paese, dato);
-		info.add(map);
-		if(map.get(paese)==0) //se quindi non esiste il paese o la categoria o la sottocategoria
-		{
-			return infoError;
-		}
-		else return info;	
+		return info;
+					
+		
 	}
-	//metodo che restituisce l'array di dati relativi al paese cercato
-	public HashMap ....... getDati_paese (String paese)
-	{
-		ArrayList <Object> infoError = new ArrayList <Object> ();
-		infoError.add("Error");//nel caso ci siano errori nella dichiarazione dei parametri
-		
-		ArrayList <String> nomiMainCat =new ArrayList <String>();
-		ArrayList <Double> dati = new ArrayList <Double> ();
-		
-		
-		HashMap <String, ArrayList<String>> mapNomi = new HashMap <String, ArrayList<String>>();//contiene il nome della macrocategoria e le relative sottocategorie
-		HashMap <HashMap,Double>  mapInfo = new HashMap <HashMap,Double>();//contiene i dati
-		
-		for(int i=0;i<lista.size();i++)
-		{
-			nomiMainCat.add(lista.get(i).getNameCat());
-			ArrayList <String> nomiSubCat;
-			for(int j=0;j<lista.get(i).getSottocategorie().size();j++)
-			{
-				nomiSubCat.add(lista.get(i).getSottocategorie().get(j).getNameSub());
-			    //si viene a formare un array con i nomi delle sottocategoria rispetto a ciascuna categoria
-				//ora devo salvare i dati dei paesi relativi a sottocategorie
-			}
-			mapNomi.put(nomiMainCat.get(i),nomiSubCat);
-		}*/
+	
 		//metodo utile per controllare l'esistenza di una macro e sub categoria
 		public boolean check(String a , String elemento)
 		{
-			if(a.equals(elemento))
+			if(a.contains(elemento))
 					return true;
 				else 
 					return false;
@@ -128,6 +113,7 @@ public class Services {
 			boolean flag2;
 			ArrayList <Double> dati=new ArrayList <Double>();
 			HashMap <String, Double> stats=new HashMap <String,Double>();
+			
 			for(MainCat c:lista)
 			{
 				flag1=check(c.getNameCat(),MainCat);
@@ -142,14 +128,16 @@ public class Services {
 							stats.put("Media",statistiche.avg(dati));
 							stats.put("Somma",statistiche.sum(dati));
 							double m=statistiche.max(dati);
-							stats.put(s.getPaese(m),m);
+							stats.put("max:"+s.getPaese(m),m);
 							m=statistiche.min(dati);
-							stats.put(s.getPaese(m),m);
+							stats.put("min:"+s.getPaese(m),m);
 							stats.put("Deviazione Standard",statistiche.DevStd(dati));
+							
 						}
 					}
 				}
 			}
+			
 			if(dati.isEmpty())
 			{
 				stats.put("Error",(double) 0);

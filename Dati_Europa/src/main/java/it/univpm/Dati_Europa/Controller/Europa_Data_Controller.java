@@ -70,17 +70,29 @@ public class Europa_Data_Controller
 		}
 		else
 		{
+			HashMap<String,Double> dati=new HashMap<String,Double>();
+			HashMap<String,HashMap> dati_sottocategorie=new HashMap<String,HashMap>();
+			
 			for(MainCat M : servizio.Dati())
 			{
 				for(SubCat S : M.getSottocategorie())
 				{
-					Stats.add(servizio.Statistiche(M.getNameCat(), S.getNameSub()));
+					dati=servizio.Statistiche(M.getNameCat(), S.getNameSub());
+					dati_sottocategorie.put(M.getNameCat()+":"+S.getNameSub(), dati);
 				}
+				
+				Stats.add(dati_sottocategorie);
 			}
 		}
 		return Stats;
 	}
 	
+	
+	@GetMapping("/DatoPaese")
+	public ArrayList <Object> DatoPaese(@RequestParam(value = "MainCat", defaultValue="") String MainCat, @RequestParam("SubCat") String SubCat, @RequestParam("Paese") String Paese)
+	{
+		return servizio.getDato_paese(MainCat, SubCat, Paese);
+	}
    /* public List<Map> getStats(@RequestParam(value = "field", defaultValue = "") String fieldName) {
 
     	Field[] fields = Erasmus.class.getDeclaredFields();
