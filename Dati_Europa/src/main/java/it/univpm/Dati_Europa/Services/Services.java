@@ -7,6 +7,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 
 import org.springframework.stereotype.Service;
 
@@ -40,16 +41,14 @@ public class Services {
 	private ArrayList <Double> getDatiPaesi(SubCat s)
 	{
 		ArrayList<Double> DatiPaesi= new ArrayList<Double>();
-		ArrayList<String> paesi= new ArrayList<String>();
-		paesi=(ArrayList<String>) s.getDati().keySet();//un array con i nomi dei paesi
+		Set<String> paesi;
+		paesi=s.getDati().keySet();//un set con i nomi dei paesi
 		for(String p : paesi)
 		{
 			DatiPaesi.add(s.getDati().get(p));
 		}
 		return DatiPaesi;
 	}
-	
-	
 	
 	//restituisce i metadata
 	public ArrayList<Map> getMetadata() 

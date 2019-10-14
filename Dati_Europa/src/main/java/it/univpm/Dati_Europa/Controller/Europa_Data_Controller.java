@@ -63,7 +63,7 @@ public class Europa_Data_Controller
 			{
 				Stats.add(servizio.Statistiche(Nomi[0], Nomi[1]));
 			}
-			else
+			 else
 			{
 				for(SubCat S : )
 			}
