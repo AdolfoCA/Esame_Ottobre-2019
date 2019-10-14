@@ -54,18 +54,18 @@ public class Europa_Data_Controller
 
      */
 	@GetMapping("/Statistiche")
-	public ArrayList<HashMap> statistiche(@RequestParam(value="Nomi", defaultValue="") String[] Nomi)
+	public List<Map> statistiche(@RequestParam(value = "MainCat", defaultValue="") String MainCat, @RequestParam("SubCat") String SubCat)
 	{
-		ArrayList<HashMap> Stats= new ArrayList<HashMap>();
-		if(!(Nomi[0].equals("")))
+		List<Map> Stats= new ArrayList<>();
+		if(!(MainCat.equals("")))
 		{
-			if(!(Nomi[1].equals("")))
+			if(!(SubCat.equals("")))
 			{
-				Stats.add(servizio.Statistiche(Nomi[0], Nomi[1]));
+				Stats.add(servizio.Statistiche(MainCat, SubCat));
 			}
 			 else
 			{
-				for(SubCat S : )
+				Stats.add(servizio.Statistiche(MainCat));
 			}
 		}
 		else
@@ -81,8 +81,6 @@ public class Europa_Data_Controller
 		return Stats;
 	}
 	
-    //@PostMapping("/Statistiche")
-   // public Map<String,Double> statistiche (@RequestBody)
    /* public List<Map> getStats(@RequestParam(value = "field", defaultValue = "") String fieldName) {
 
     	Field[] fields = Erasmus.class.getDeclaredFields();
