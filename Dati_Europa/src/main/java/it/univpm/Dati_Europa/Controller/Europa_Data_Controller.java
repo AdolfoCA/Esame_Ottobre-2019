@@ -54,8 +54,9 @@ public class Europa_Data_Controller
 
      */
 	@GetMapping("/Statistiche")
-	public ArrayList<HashMap> statistiche(@RequestParam(value="Nomi", defaultValue="") String[] Nomi)
+	public Object statistiche(@RequestParam(value="ParamScelto", defaultValue="") String ParamScelto)
 	{
+		String[] Nomi = ParamScelto.split("&");
 		ArrayList<HashMap> Stats= new ArrayList<HashMap>();
 		if(!(Nomi[0].equals("")))
 		{
@@ -65,7 +66,7 @@ public class Europa_Data_Controller
 			}
 			else
 			{
-				for(SubCat S : )
+				return servizio.Statistiche(Nomi[0]);
 			}
 		}
 		else
