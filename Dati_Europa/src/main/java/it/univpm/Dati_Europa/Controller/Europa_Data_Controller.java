@@ -93,7 +93,7 @@ public class Europa_Data_Controller
 	}
 	
 	@PostMapping("/Filtri")
-	public ArrayList<Map> Filtri(@RequestBody Filter filtro)
+	public Object Filtri(@RequestBody Filter filtro)
 	{
 		return servizio.Filter(filtro.getMainCat(), filtro.getSubCat(), filtro.getFiltro(), filtro.getParam());
 	}
