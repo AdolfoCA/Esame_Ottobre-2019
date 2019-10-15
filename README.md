@@ -30,15 +30,15 @@ localhost:8080/Metadati
 
 ```
 
-### [](https://github.com/ErmelindaBegotaraj/Progetto/tree/master/Progetto/src/main/java/com/lindatato/Progetto#statistiche)Statistiche
+### Statistiche
 
 Per ottenere le statistiche di ogni attributo del dataset bisogna impostare il metodo  **GET**  e definire la rotta
 
 ```
-localhost:8080/stats
+localhost:8080/Statistiche
 ```
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMzc1NTAyNzg1XX0=
+eyJoaXN0b3J5IjpbLTgzMjUzODEzMl19
 -->
