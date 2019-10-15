@@ -7,6 +7,35 @@ import it.univpm.Dati_Europa.Model.MainCat;
 import it.univpm.Dati_Europa.Model.SubCat;
 
 public class Filter {
+	String MainCat;
+	String SubCat;
+	String Filtro;
+	Double[] Param;
+	
+	public String getMainCat() {
+		return MainCat;
+	}
+	public void setMainCat(String mainCat) {
+		MainCat = mainCat;
+	}
+	public String getSubCat() {
+		return SubCat;
+	}
+	public void setSubCat(String subCat) {
+		SubCat = subCat;
+	}
+	public String getFiltro() {
+		return Filtro;
+	}
+	public void setFiltro(String filtro) {
+		Filtro = filtro;
+	}
+	public Double[] getParam() {
+		return Param;
+	}
+	public void setParam(Double[] param) {
+		Param = param;
+	}
 	//Metodo per verificare se un dato elemento e' presente oppure no nella lista (tratta insieme gli operatori logici in e nin restituendo true o false)
 	public static boolean In (ArrayList<Double> lista, double param)
 	{

@@ -173,7 +173,7 @@ public class Services {
 		
 	    }
 		//Filtri
-		public Object Filter (String MainCat,String SubCat, String filtro, double [] param)
+		public Object Filter (String MainCat,String SubCat, String filtro, Double[] param)
 		{
 			String[] nomi_filtri= {"Gt", "Lt", "In"};
 			boolean flag1;
