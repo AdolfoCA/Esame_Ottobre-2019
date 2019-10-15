@@ -72,7 +72,6 @@ public class Europa_Data_Controller
 		{
 			HashMap<String,Double> dati=new HashMap<String,Double>();
 			HashMap<String,HashMap> dati_sottocategorie=new HashMap<String,HashMap>();
-			
 			for(MainCat M : servizio.Dati())
 			{
 				for(SubCat S : M.getSottocategorie())
@@ -80,18 +79,22 @@ public class Europa_Data_Controller
 					dati=servizio.Statistiche(M.getNameCat(), S.getNameSub());
 					dati_sottocategorie.put(M.getNameCat()+":"+S.getNameSub(), dati);
 				}
-				
 				Stats.add(dati_sottocategorie);
 			}
 		}
 		return Stats;
 	}
 	
-	
 	@GetMapping("/DatoPaese")
 	public ArrayList <Object> DatoPaese(@RequestParam(value = "MainCat", defaultValue="") String MainCat, @RequestParam("SubCat") String SubCat, @RequestParam("Paese") String Paese)
 	{
 		return servizio.getDato_paese(MainCat, SubCat, Paese);
+	}
+	
+	@PostMapping("/Filtri")
+	public ArrayList<Map> Filtri(@RequestBody String MainCat, String SubCat, String Filtro, double ... Param)
+	{
+		return servizio.Filter(MainCat, SubCat, Filtro, Param);
 	}
    /* public List<Map> getStats(@RequestParam(value = "field", defaultValue = "") String fieldName) {
 
