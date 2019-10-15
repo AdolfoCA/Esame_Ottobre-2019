@@ -207,7 +207,7 @@ public class Services {
 									    {
 									    	Paesi_filtrati.put(s.getPaese(d), d);
 									    }
-									    Filter.put(MainCat+":"+SubCat, Paesi_filtrati);
+									    Filter.put(c.getNameCat()+":"+s.getNameSub(), Paesi_filtrati);
 									    break;
 									
 									case "Lt":
@@ -216,7 +216,7 @@ public class Services {
 									    {
 									    	Paesi_filtrati.put(s.getPaese(d), d);
 									    }
-									    Filter.put(MainCat+":"+SubCat, Paesi_filtrati);
+									    Filter.put(c.getNameCat()+":"+s.getNameSub(), Paesi_filtrati);
 									    break;
 									
 									case"In":
@@ -233,7 +233,7 @@ public class Services {
 												esitoIn.put(p,"il dato non è relativo a nessun paese nell'elenco");
 											}
 										}
-										Filter.put(MainCat+":"+SubCat,esitoIn );
+										Filter.put(c.getNameCat()+":"+s.getNameSub(),esitoIn );
 										break;
 									
 										default:
@@ -267,7 +267,7 @@ public class Services {
 				{
 					for(SubCat s: c.getSottocategorie())
 					{
-						info.add(Filter (MainCat,s.getNameSub(),filtro,param));
+						info.add(Filter (c.getNameCat(),s.getNameSub(),filtro,param));
 					}
 				}
 			}
