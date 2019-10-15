@@ -23,7 +23,7 @@ localhost:8080/Dati
 
 ### Metadati
 
-Per richiedere i metadati bisogna impostare il metodo  **GET**  e definire la rotta
+Per richiedere i metadati ovvero le Macrocategorie bisogna impostare il metodo  **GET**  e definire la rotta
 
 ```
 localhost:8080/Metadati
@@ -32,7 +32,7 @@ localhost:8080/Metadati
 
 ### Statistiche
 
-Per ottenere le statistiche di ogni attributo del dataset bisogna impostare il metodo  **GET**  e definire la rotta
+Per ottenere le statistiche su ogni Macrocategoria del csv bisogna impostare il metodo  **GET**  e definire la rotta
 
 ```
 localhost:8080/Statistiche
@@ -40,5 +40,5 @@ localhost:8080/Statistiche
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTIwNzMwNDYzMDVdfQ==
+eyJoaXN0b3J5IjpbNzQ0MDAxNTBdfQ==
 -->
