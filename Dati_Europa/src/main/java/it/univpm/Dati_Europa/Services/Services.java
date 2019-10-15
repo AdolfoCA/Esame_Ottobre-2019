@@ -36,7 +36,6 @@ public class Services {
 		lista=p1.getData();
 		MD=new Metadata(lista);
 		statistiche = new Stats();
-		filtri=new Filter();
 		Dati=new ArrayList <Double>();
 	}
 	//resituisce l'array con tutti i dati dei vari paesi rispetto ad una sottocategoria
@@ -100,7 +99,7 @@ public class Services {
 	}
 	
 		//metodo utile per controllare l'esistenza di una macro e sub categoria
-		public boolean check(String a , String elemento)
+		private boolean check(String a , String elemento)
 		{
 			if(a.contains(elemento))
 					return true;
@@ -173,14 +172,17 @@ public class Services {
 		
 	    }
 
-		//Filtri
-		public Object Filter (String MainCat,String SubCat, String filtro, Double[] param)
-
+		//Filtri se si specificano macro e sotto categoria
+		public Object Filter (Filter filtri)
 		{
+			String MainCat =filtri.getMainCat();
+			String SubCat = filtri.getSubCat();
+			String Filtro = filtri.getFiltro();
+			Double[] param= filtri.getParam();
+			
 			String[] nomi_filtri= {"Gt", "Lt", "In"};
 			boolean flag1;
 			boolean flag2;
-			boolean flag3;
 			ArrayList <Double> dati=new ArrayList <Double>();
 			HashMap <String, Object> Paesi_filtrati=new HashMap <String,Object>();
 			HashMap <String, HashMap> Filter=new HashMap <String,HashMap>();
@@ -253,8 +255,24 @@ public class Services {
 			}
 			return Filter;
 		}
-		//filtro se si specifica solo la macrocategoria
-		
+		//Filtri se si specifica solo la macrocategoria
+		/*public Object Filter (String MainCat, String filtro, Double[] param)
+		{
+			boolean flag1=false;
+			ArrayList <Object> info=new ArrayList <Object>();
+			for(MainCat c:lista)
+			{
+				flag1 = check(c.getNameCat(),MainCat);
+				if(flag1==true)
+				{
+					for(SubCat s: c.getSottocategorie())
+					{
+						info.add(Filter (MainCat,s.getNameSub(),filtro,param));
+					}
+				}
+			}
+			return info;
+		}*/
 		
 }
 	
