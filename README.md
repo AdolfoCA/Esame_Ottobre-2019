@@ -42,10 +42,10 @@ Per ottenere le statistiche rispetto ad una Macrocateogoria e sottocategoria bis
 ```
 localhost:8080/Statistiche
 ```
-|key|  |
-|--|--|
-|  |  |
+|**key*********       | **value**|
+|MainCat |"Nome macrocategoria"|
+|SubCat  |"Nome sottocategoria"   |
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTUwMjk4MzE2Ml19
+eyJoaXN0b3J5IjpbLTExOTQxNTk3MDddfQ==
 -->
