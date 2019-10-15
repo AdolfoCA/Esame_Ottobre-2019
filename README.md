@@ -21,11 +21,15 @@ Per richiedere i dati contenuti nel file CSV bisogna impostare il metodo **GET**
 ```
 localhost:8080/Dati
 ```
-Se si desidera ottenere un dato relativo ad un particolare paese, rispetto ad una categoria e sottocategoria bisgo
+Se si desidera ottenere un dato relativo ad un particolare paese, rispetto ad una categoria e sottocategoria bisogna definire il metodo **GET** e definire la rotta
+```
+localhost:8080/DatoPaese
+```
+e passare come parametri la Macrocategoria, Sottocategoria e paese.
 
 ### Metadati
 
-Per richiedere i metadati ovvero le Macrocategorie bisogna impostare il metodo  **GET**  e definire la rotta
+Per richiedere i metadati, ovvero le Macrocategorie, bisogna impostare il metodo  **GET**  e definire la rotta
 
 ```
 localhost:8080/Metadati
@@ -39,8 +43,9 @@ Per ottenere le statistiche su ogni Macrocategoria del csv bisogna impostare il 
 ```
 localhost:8080/Statistiche
 ```
+se si 
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNTM1NTYxNzk0XX0=
+eyJoaXN0b3J5IjpbMjczOTU3OTBdfQ==
 -->
