@@ -92,7 +92,7 @@ public class Europa_Data_Controller
 	}
 	
 	@PostMapping("/Filtri")
-	public ArrayList<Map> Filtri(@RequestBody String MainCat, String SubCat, String Filtro, double ... Param)
+	public  ArrayList<Map> Filtri(@RequestBody String MainCat, String SubCat, String Filtro, double ... Param)
 	{
 		return servizio.Filter(MainCat, SubCat, Filtro, Param);
 	}
