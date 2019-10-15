@@ -42,10 +42,11 @@ Per ottenere le statistiche rispetto ad una Macrocateogoria e sottocategoria bis
 ``` 
 localhost:8080/Statistiche
 ```
-e impostare due parametri. MainCat e SubCat. 
+e impostare due parametri: MainCat e SubCat.
+Ad esempio
 
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMjA5NDU3NTQwNF19
+eyJoaXN0b3J5IjpbMjAxMzE5NTM4N119
 -->
