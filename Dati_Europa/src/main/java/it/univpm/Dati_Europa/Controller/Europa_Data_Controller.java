@@ -95,7 +95,8 @@ public class Europa_Data_Controller
 	@PostMapping("/Filtri")
 	public Object Filtri(@RequestBody Filter filtro)
 	{
-		return servizio.Filter(filtro.getMainCat(), filtro.getSubCat(), filtro.getFiltro(), filtro.getParam());
+		//return servizio.Filter(filtro.getMainCat(), filtro.getSubCat(), filtro.getFiltro(), filtro.getParam());
+		return servizio.Filter(filtro);
 	}
    /* public List<Map> getStats(@RequestParam(value = "field", defaultValue = "") String fieldName) {
 

@@ -11,7 +11,13 @@ public class Filter {
 	String SubCat;
 	String Filtro;
 	Double[] Param;
-	
+	public Filter(String MainCat, String SubCat, String Filtro, Double[] Param)
+	{
+		this.MainCat=MainCat;
+		this.SubCat=SubCat;
+		this.Filtro=Filtro;
+		this.Param=Param;
+	}
 	public String getMainCat() {
 		return MainCat;
 	}
