@@ -65,7 +65,7 @@ public class SubCat
 	}
     
 	/**
-	 * Getter e setter di nameSub e getter di datiPaesi e nPaesi
+	 * Getter e setter di nameSub
 	*/
 	
 	public String getNameSub() {
