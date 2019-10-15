@@ -25,6 +25,7 @@ public class Services {
 	private Metadata MD;
 	private Stats statistiche;
 	private ArrayList<Double>Dati;
+	private Filter filtri;
 	
 	public Services()
 	{
@@ -35,6 +36,7 @@ public class Services {
 		lista=p1.getData();
 		MD=new Metadata(lista);
 		statistiche = new Stats();
+		filtri=new Filter();
 		Dati=new ArrayList <Double>();
 	}
 	//resituisce l'array con tutti i dati dei vari paesi rispetto ad una sottocategoria
@@ -170,7 +172,85 @@ public class Services {
 			return dati;
 		
 	    }
-		
+		//Filtri
+		public Object Filter (String MainCat,String SubCat, String filtro, double [] param)
+		{
+			String[] nomi_filtri= {"Gt", "Lt", "In"};
+			boolean flag1;
+			boolean flag2;
+			boolean flag3;
+			ArrayList <Double> dati=new ArrayList <Double>();
+			HashMap <String, Object> Paesi_filtrati=new HashMap <String,Object>();
+			HashMap <String, HashMap> Filter=new HashMap <String,HashMap>();
+			for(MainCat c:lista)
+			{
+				flag1=check(c.getNameCat(),MainCat);
+				if(flag1==true)
+				{
+					for(SubCat s: c.getSottocategorie())
+					{
+						flag2=check(s.getNameSub(),SubCat);
+						if(flag2==true)
+						{
+							for(String f: nomi_filtri)
+							{
+								
+									dati=getDatiPaesi(s);
+									switch(f)
+									{
+									case "Gt" :
+									{
+										dati=filtri.Gt(dati, param[0]);
+									    for(Double d:dati)
+									    {
+									    	Paesi_filtrati.put(s.getPaese(d), d);
+									    }
+									    Filter.put(MainCat+":"+SubCat, Paesi_filtrati);
+									    break;
+									}
+									case "Lt":
+									{
+										dati=filtri.Lt(dati, param[0]);
+									    for(Double d:dati)
+									    {
+									    	Paesi_filtrati.put(s.getPaese(d), d);
+									    }
+									    Filter.put(MainCat+":"+SubCat, Paesi_filtrati);
+									    break;
+									}
+									case"In":
+									{
+										boolean in_nin;
+										for(double p:param)
+										{
+											in_nin=filtri.In(dati,p);
+											if(in_nin==true)
+											{
+												Paesi_filtrati.put(s.getPaese(p), in_nin +" parametro: "+p);
+											}
+											else
+											{
+												Paesi_filtrati.put("Paese inesistente",in_nin +" parametro: "+p);
+											}
+										}
+										Filter.put(MainCat+":"+SubCat, Paesi_filtrati);
+										break;
+									}
+										default:
+										{
+											Paesi_filtrati.put("Errore", "Filtro inesistente");
+											return Paesi_filtrati;
+										}
+									
+								    }
+									
+							}
+						}
+					}
+				}
+			}
+			return Filter;
+		}
 		
 }
 	
