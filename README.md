@@ -14,7 +14,7 @@ Per testare il software è possibile utilizzare **Postman**, ambiente attraverso
 
 ###  Dati
 
-Per richiedere i dati contenuti nel file CSV bisogna impostare il metodo “GET” e definire la rotta
+Per richiedere i dati contenuti nel file CSV bisogna impostare il metodo **GET** e definire la rotta
 
 ```
 localhost:8080/Dati
@@ -40,5 +40,5 @@ localhost:8080/Statistiche
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTgzMjUzODEzMl19
+eyJoaXN0b3J5IjpbLTIwNzMwNDYzMDVdfQ==
 -->
