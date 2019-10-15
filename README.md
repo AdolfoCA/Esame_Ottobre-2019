@@ -38,14 +38,14 @@ localhost:8080/Metadati
 
 ### Statistiche
 
-Per ottenere le statistiche rispetto ad una Macrocateogoria e sottocategoria bisogna impostare il metodo **GET** e definire la rotta
-```
+Per ottenere le statistiche rispetto ad una Macrocateogoria e sottocategoria bisogna impostare il metodo **GET**, definire la rotta
+``` 
 localhost:8080/Statistiche
 ```
-|**key*********       | **value**|
-|MainCat |"Nome macrocategoria"|
-|SubCat  |"Nome sottocategoria"   |
+e impostare due parametri. MainCat e SubCat. 
+
+
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTExOTQxNTk3MDddfQ==
+eyJoaXN0b3J5IjpbMjA5NDU3NTQwNF19
 -->
