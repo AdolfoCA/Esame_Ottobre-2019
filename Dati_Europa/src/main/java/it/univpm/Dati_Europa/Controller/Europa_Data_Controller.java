@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import it.univpm.Dati_Europa.Model.MainCat;
 import it.univpm.Dati_Europa.Model.SubCat;
+import it.univpm.Dati_Europa.Services.Filter;
 import it.univpm.Dati_Europa.Services.Services;
 
 @RestController
@@ -92,9 +93,10 @@ public class Europa_Data_Controller
 	}
 	
 	@PostMapping("/Filtri")
-	public  ArrayList<Map> Filtri(@RequestBody String MainCat, String SubCat, String Filtro, double ... Param)
+
+	public ArrayList<Map> Filtri(@RequestBody Filter filtro)
 	{
-		return servizio.Filter(MainCat, SubCat, Filtro, Param);
+		return servizio.Filter(filtro.getMainCat(), filtro.getSubCat(), filtro.getFiltro(), filtro.getParam());
 	}
    /* public List<Map> getStats(@RequestParam(value = "field", defaultValue = "") String fieldName) {
 

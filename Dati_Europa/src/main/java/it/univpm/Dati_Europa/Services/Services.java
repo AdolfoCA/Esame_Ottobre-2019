@@ -172,8 +172,10 @@ public class Services {
 			return dati;
 		
 	    }
-		//Filtri rispetto ad una categoria e ad una sottocategoria
-		public Object Filter (String MainCat,String SubCat, String filtro, Double [] param)
+
+		//Filtri
+		public Object Filter (String MainCat,String SubCat, String filtro, Double[] param)
+
 		{
 			String[] nomi_filtri= {"Gt", "Lt", "In"};
 			boolean flag1;
