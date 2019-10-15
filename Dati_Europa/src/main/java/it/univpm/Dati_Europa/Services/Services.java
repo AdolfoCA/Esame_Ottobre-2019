@@ -172,8 +172,10 @@ public class Services {
 			return dati;
 		
 	    }
+
 		//Filtri
 		public Object Filter (String MainCat,String SubCat, String filtro, Double[] param)
+
 		{
 			String[] nomi_filtri= {"Gt", "Lt", "In"};
 			boolean flag1;
@@ -251,6 +253,8 @@ public class Services {
 			}
 			return Filter;
 		}
+		//filtro se si specifica solo la macrocategoria
+		
 		
 }
 	
