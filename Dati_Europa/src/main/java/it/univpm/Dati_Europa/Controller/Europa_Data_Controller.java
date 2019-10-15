@@ -95,11 +95,19 @@ public class Europa_Data_Controller
 	@PostMapping("/Filtri")
 	public Object Filtri(@RequestBody Filter filtro)
 	{
-		//String MainCat= filtro.getMainCat();
-		//String SubCat= filtro.getSubCat();
-		//String Filtro= filtro.getFiltro();
-		//Double[] Param= filtro.getParam();
-		return servizio.Filter(filtro.getMainCat(), filtro.getSubCat(), filtro.getFiltro(), filtro.getParam());
+		String MainCat= filtro.getMainCat();
+		String SubCat= filtro.getSubCat();
+		String Filtro= filtro.getFiltro();
+		Double[] Param= filtro.getParam();
+		if(MainCat.equals(""))
+		{
+			return servizio.Filter(Filtro, Param);
+		}
+		if(SubCat.equals(""))
+		{
+			return servizio.Filter(MainCat, Filtro, Param);
+		}
+		return servizio.Filter(MainCat, SubCat, Filtro, Param);
 		//return servizio.Filter(filtro);
 	}
    /* public List<Map> getStats(@RequestParam(value = "field", defaultValue = "") String fieldName) {

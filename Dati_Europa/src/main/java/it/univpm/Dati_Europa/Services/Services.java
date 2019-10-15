@@ -69,7 +69,7 @@ public class Services {
 		ArrayList <Object> info = new ArrayList <Object> ();
 		//devo trovare in lista l'elemnto il cui nome è MainCat, il parametro passato alla funzione.
 		Map<String, Double> map = new HashMap<>();
-		double dato = 0;
+		double dato = -1;
 		for(MainCat c:lista)
 		{
 			boolean flag1 = check(c.getNameCat(),MainCat);
@@ -83,7 +83,7 @@ public class Services {
 						info.add(MainCat);
 						info.add(SubCat);
 						dato=s.getDatoPaese(paese);
-						if(dato==0)
+						if(dato==-1)
 						{
 							return infoError;
 						}
@@ -173,18 +173,19 @@ public class Services {
 	    }
 
 		//Filtri se si specificano macro e sotto categoria
-		public Object Filter (Filter filtri)
+		public Object Filter (String MainCat,String SubCat,String Filtro,Double[] param)
 		{
-			String MainCat =filtri.getMainCat();
+			/*String MainCat =filtri.getMainCat();
 			String SubCat = filtri.getSubCat();
 			String Filtro = filtri.getFiltro();
-			Double[] param= filtri.getParam();
+			Double[] param= filtri.getParam();*/
 			
-			String[] nomi_filtri= {"Gt", "Lt", "In"};
 			boolean flag1;
 			boolean flag2;
 			ArrayList <Double> dati=new ArrayList <Double>();
+			ArrayList <Double> Ndati=new ArrayList <Double>();
 			HashMap <String, Object> Paesi_filtrati=new HashMap <String,Object>();
+			HashMap <Double, String> esitoIn=new HashMap <Double,String>();
 			HashMap <String, HashMap> Filter=new HashMap <String,HashMap>();
 			for(MainCat c:lista)
 			{
@@ -196,67 +197,66 @@ public class Services {
 						flag2=check(s.getNameSub(),SubCat);
 						if(flag2==true)
 						{
-							for(String f: nomi_filtri)
-							{
-								
+							
 									dati=getDatiPaesi(s);
-									switch(f)
+									switch(Filtro)
 									{
 									case "Gt" :
-									{
-										dati=filtri.Gt(dati, param[0]);
-									    for(Double d:dati)
+										Ndati=filtri.Gt(dati, param[0]);
+									    for(Double d:Ndati)
 									    {
 									    	Paesi_filtrati.put(s.getPaese(d), d);
 									    }
 									    Filter.put(MainCat+":"+SubCat, Paesi_filtrati);
 									    break;
-									}
+									
 									case "Lt":
-									{
-										dati=filtri.Lt(dati, param[0]);
-									    for(Double d:dati)
+										Ndati=filtri.Lt(dati, param[0]);
+									    for(Double d:Ndati)
 									    {
 									    	Paesi_filtrati.put(s.getPaese(d), d);
 									    }
 									    Filter.put(MainCat+":"+SubCat, Paesi_filtrati);
 									    break;
-									}
+									
 									case"In":
-									{
 										boolean in_nin;
 										for(double p:param)
 										{
 											in_nin=filtri.In(dati,p);
 											if(in_nin==true)
 											{
-												Paesi_filtrati.put(s.getPaese(p), in_nin +" parametro: "+p);
+												esitoIn.put(p,"il dato relativo al paese "+s.getPaese(p));
 											}
 											else
 											{
-												Paesi_filtrati.put("Paese inesistente",in_nin +" parametro: "+p);
+												esitoIn.put(p,"il dato non è relativo a nessun paese nell'elenco");
 											}
 										}
-										Filter.put(MainCat+":"+SubCat, Paesi_filtrati);
+										Filter.put(MainCat+":"+SubCat,esitoIn );
 										break;
-									}
+									
 										default:
-										{
+										
 											Paesi_filtrati.put("Errore", "Filtro inesistente");
 											return Paesi_filtrati;
-										}
 									
 								    }
 									
 							}
-						}
+					   }
 					}
+				    
 				}
+			if(dati.isEmpty())
+			{
+					Paesi_filtrati.put("Errore", "Macrocategoria o Sottocategoria inesistente");
+					return Paesi_filtrati;
 			}
 			return Filter;
 		}
 		//Filtri se si specifica solo la macrocategoria
-		/*public Object Filter (String MainCat, String filtro, Double[] param)
+		public Object Filter (String MainCat, String filtro, Double[] param)
 		{
 			boolean flag1=false;
 			ArrayList <Object> info=new ArrayList <Object>();
@@ -272,7 +272,17 @@ public class Services {
 				}
 			}
 			return info;
-		}*/
+		}
+		//Filtri se non si specifica nulla
+		public Object Filter (String filtro, Double[] param)
+		{
+			ArrayList <Object> info=new ArrayList <Object>();
+			for(MainCat c:lista)
+			{
+				info.add(Filter(c.getNameCat(),filtro,param));
+			}
+			return info;
+		}
 		
 }
 	

@@ -54,27 +54,29 @@ public class Filter {
 		return b;
 	}
 	//Metodo per trattare l'operatore condizionale gt
-	public static ArrayList<Double> Gt (ArrayList<Double> lista, double param)
+	public static ArrayList <Double> Gt (ArrayList<Double> lista, double param)
 	{
+		ArrayList<Double> Nlista= new ArrayList <Double>();
 		for(Double e : lista)
 		{
-			if(!(e > param))
+			if((e > param))
 			{
-				lista.remove(e);
+				Nlista.add(e);
 			}
 		}
-		return lista;
+		return Nlista;
 	}
 	//Metodo per trattare l'operatore condizionale lt
 	public static ArrayList<Double> Lt (ArrayList<Double> lista, double param)
 	{
+		ArrayList<Double> Nlista= new ArrayList <Double>();
 		for(Double e : lista)
 		{
-			if(!(e < param))
+			if((e < param))
 			{
-				lista.remove(e);
+				Nlista.add(e);
 			}
 		}
-		return lista;
+		return Nlista;
 	}
 }
