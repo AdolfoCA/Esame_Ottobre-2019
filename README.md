@@ -2364,7 +2364,11 @@ _Model_  contiene la classe principale su cui si basa l’intero programma.
 _Services_  è utile nell’implementazione di metodi che gestiscono l’accesso a dati, metadati, statistiche e filtri.
 
 _Download_Parsing_  include la classe che permette di fare il download e il parsing del file CSV.
-   
+
+   ## Diagrammi
+
+### Casi d’uso
+ 
  
 
    
@@ -2373,7 +2377,7 @@ _Download_Parsing_  include la classe che permette di fare il download e il pars
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTQzNTM5MjY1MywtOTU4NDg2MDkzLC0xND
-EyNDEzMDc1LC0yMDk4NDYxNjQ3LC0yMDcwOTQxNzk0LC0xNDUw
-Mjk0NDMwXX0=
+eyJoaXN0b3J5IjpbLTk5OTE1NzU1LC00MzUzOTI2NTMsLTk1OD
+Q4NjA5MywtMTQxMjQxMzA3NSwtMjA5ODQ2MTY0NywtMjA3MDk0
+MTc5NCwtMTQ1MDI5NDQzMF19
 -->
