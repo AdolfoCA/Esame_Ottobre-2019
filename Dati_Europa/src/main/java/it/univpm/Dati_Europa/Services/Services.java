@@ -64,8 +64,6 @@ public class Services {
 	//Si inserisce la categoria,sottocategoria e paese e viene restituito il dato
 	public ArrayList <Object> getDato_paese(String MainCat, String SubCat,String paese) 
 	{
-		ArrayList <Object> infoError = new ArrayList <Object> ();
-		infoError.add("Error"); //nel caso ci siano errori nella dichiarazione dei parametri
 		ArrayList <Object> info = new ArrayList <Object> ();
 		//devo trovare in lista l'elemnto il cui nome è MainCat, il parametro passato alla funzione.
 		Map<String, Double> map = new HashMap<>();
@@ -80,22 +78,36 @@ public class Services {
 					boolean flag2 = check(s.getNameSub(),SubCat);
 					if(flag2==true)
 					{
+						if(paese.equals(""))
+						{
+							ArrayList <Object> errore = new ArrayList <Object>();
+							errore.add("Errore, paese non inserito");
+							return errore;
+						}
 						info.add(MainCat);
 						info.add(SubCat);
 						dato=s.getDatoPaese(paese);
 						if(dato==-1)
 						{
-							return infoError;
+							ArrayList <Object> errore = new ArrayList <Object>();
+							errore.add("Errore, paese errato");
+							return errore;
 						}
 						map.put(paese, dato);
 						info.add(map);
 					}
 				}
 			}
+			
+		}
+		if(MainCat.equals("") || SubCat.equals("")|| info.isEmpty())
+		{
+			ArrayList <Object> errore = new ArrayList <Object>();
+			errore.add("Errore, Macrocategoria o sottocategoria non inserita");
+			return errore;
 		}
 		return info;
-					
-		
+				
 	}
 	
 		//metodo utile per controllare l'esistenza di una macro e sub categoria

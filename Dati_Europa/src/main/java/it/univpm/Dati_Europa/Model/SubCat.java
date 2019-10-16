@@ -93,8 +93,11 @@ public class SubCat
 	
 	public double getDatoPaese(String paese) 
 	{
-		int i=nPaesi.lastIndexOf(paese); //determina l'indice dell'arraynPaesi relativo al paese selezionato
+		int i=nPaesi.lastIndexOf(paese);//determina l'indice dell'arraynPaesi relativo al paese selezionato
+		if(i!=-1)
 		return datiPaesi.get(i); //restituisce il dato relativo a quel paese
+		else 
+			return -1;
 	}
 	
 	/**
