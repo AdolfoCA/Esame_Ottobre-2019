@@ -2346,6 +2346,19 @@ No
   
 
 Yes
+# Struttura del codice
+
+## Packaging
+
+Le classi sono inserite in quattro package principali basati sulla logica MVC (Model View Controller):
+
+_Controller_  racchiude tutti i metodi necessari per far fronte alle richieste GET e POST.
+
+_Model_  contiene la classe principale su cui si basa l’intero programma.
+
+_Services_  è utile nell’implementazione di metodi che gestiscono l’accesso a dati, metadati, statistiche e filtri.
+
+_Download_Parsing_  include la classe che permette di fare il download e il parsing del file CSV.
    
  
 
@@ -2355,6 +2368,7 @@ Yes
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTg3MDE2MjQ2OSwtMTQxMjQxMzA3NSwtMj
-A5ODQ2MTY0NywtMjA3MDk0MTc5NCwtMTQ1MDI5NDQzMF19
+eyJoaXN0b3J5IjpbLTE4MjM5MDE3MDcsLTE0MTI0MTMwNzUsLT
+IwOTg0NjE2NDcsLTIwNzA5NDE3OTQsLTE0NTAyOTQ0MzBdfQ==
+
 -->
