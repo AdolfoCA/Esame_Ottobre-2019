@@ -125,7 +125,7 @@ public class Europa_Data_Controller
 		String MainCat= filtro.getMainCat();
 		String SubCat= filtro.getSubCat();
 		String Filtro= filtro.getFiltro();
-		Double[] Param= filtro.getParam();
+		ArrayList <Double> Param= filtro.getParam();
 		if(MainCat.equals(""))
 		{
 			return servizio.Filter(Filtro, Param);

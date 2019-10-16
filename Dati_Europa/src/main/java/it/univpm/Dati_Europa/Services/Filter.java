@@ -14,14 +14,14 @@ public class Filter {
 	String MainCat;
 	String SubCat;
 	String Filtro;
-	Double[] Param;
+	ArrayList <Double> Param;
 	
 	/**
 	 * Costruttore della classe:
 	 * setta i valori degli attributi
 	*/
 	
-	public Filter(String MainCat, String SubCat, String Filtro, Double[] Param)
+	public Filter(String MainCat, String SubCat, String Filtro, ArrayList <Double> Param)
 	{
 		this.MainCat=MainCat;
 		this.SubCat=SubCat;
@@ -51,10 +51,10 @@ public class Filter {
 	public void setFiltro(String filtro) {
 		Filtro = filtro;
 	}
-	public Double[] getParam() {
+	public ArrayList<Double> getParam() {
 		return Param;
 	}
-	public void setParam(Double[] param) {
+	public void setParam(ArrayList <Double> param) {
 		Param = param;
 	}
 	

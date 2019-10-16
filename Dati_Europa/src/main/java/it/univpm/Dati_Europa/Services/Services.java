@@ -31,7 +31,7 @@ public class Services {
 	
 	/**
 	 * Costruttore della classe:
-	 * qui si esegue il parsing dei dati del csv (in quanto viene lanciato il costruttore della relativa classe) e vengono estratti i dati ormai modellati
+	 * qui si esegue il parsing dei dati del csv (in quanto viene lanciato il costruttore della relativa classe) e vengono estratti i dati modellati
 	*/
 	
 	public Services()
@@ -45,6 +45,15 @@ public class Services {
 		statistiche = new Stats();
 		Dati=new ArrayList <Double>();
 	}
+	//metodo utile per controllare l'esistenza di una macro e sub categoria
+		private boolean check(String a , String elemento)
+		{
+			if(a.contains(elemento))
+					return true;
+				else 
+					return false;
+
+		}
 	//resituisce l'array con tutti i dati dei vari paesi rispetto ad una sottocategoria
 	private ArrayList <Double> getDatiPaesi(SubCat s)
 	{
@@ -87,7 +96,6 @@ public class Services {
 	public ArrayList <Object> getDato_paese(String MainCat, String SubCat,String paese) 
 	{
 		ArrayList <Object> info = new ArrayList <Object> ();
-		//devo trovare in lista l'elemnto il cui nome è MainCat, il parametro passato alla funzione.
 		Map<String, Double> map = new HashMap<>();
 		double dato = -1;
 		for(MainCat c:lista)
@@ -109,7 +117,7 @@ public class Services {
 						info.add(MainCat);
 						info.add(SubCat);
 						dato=s.getDatoPaese(paese);
-						if(dato==-1)
+						if(dato==-1) //allora il nome del paese è sbagliato
 						{
 							ArrayList <Object> errore = new ArrayList <Object>();
 							errore.add("Errore, paese errato");
@@ -130,18 +138,9 @@ public class Services {
 		}
 		return info;
 	}
-	//metodo utile per controllare l'esistenza di una macro e sub categoria
-	private boolean check(String a , String elemento)
-	{
-		if(a.contains(elemento))
-				return true;
-			else 
-				return false;
-
-	}
 	
 	/**
-	 * Metodo che calcola le statistiche no
+	 * Metodo che calcola le statistiche 
 	 * @param MainCat e SubCat
 	 * @return le statistiche relative alla data macrocategoria e sottocategoria 
 	*/
@@ -199,7 +198,7 @@ public class Services {
 			{
 				for(SubCat s: c.getSottocategorie())
 				{
-					stats=Statistiche(MainCat,s.getNameSub());
+					stats=Statistiche(c.getNameCat(),s.getNameSub());
 					dati.put(s.getNameSub(), stats);
 				}
 			}
@@ -218,12 +217,8 @@ public class Services {
 	 * @return i dati filtrati
 	*/
 	
-	public Object Filter (String MainCat,String SubCat,String Filtro,Double[] param)
+	public Object Filter (String MainCat,String SubCat,String Filtro,ArrayList <Double> param)
 	{
-		/*String MainCat =filtri.getMainCat();
-		String SubCat = filtri.getSubCat();
-		String Filtro = filtri.getFiltro();
-		Double[] param= filtri.getParam();*/
 		boolean flag1;
 		boolean flag2;
 		ArrayList <Double> dati=new ArrayList <Double>();
@@ -231,6 +226,11 @@ public class Services {
 		HashMap <String, Object> Paesi_filtrati=new HashMap <String,Object>();
 		HashMap <Double, String> esitoIn=new HashMap <Double,String>();
 		HashMap <String, HashMap> Filter=new HashMap <String,HashMap>();
+		if(param.isEmpty())
+		{
+			Paesi_filtrati.put("Errore", "parametro non inserito");
+			return Paesi_filtrati;
+		}
 		for(MainCat c:lista)
 		{
 			flag1=check(c.getNameCat(),MainCat);
@@ -245,20 +245,20 @@ public class Services {
 						switch(Filtro)
 						{
 							case "Gt" :
-							Ndati=filtri.Gt(dati, param[0]);
+							Ndati=filtri.Gt(dati, param.get(0));
 							for(Double d:Ndati)
 							{
 								Paesi_filtrati.put(s.getPaese(d), d);
 						    }
-						    Filter.put(MainCat+":"+SubCat, Paesi_filtrati);
+						    Filter.put(c.getNameCat()+":"+s.getNameSub(), Paesi_filtrati);
 						    break;
 							case "Lt":
-							Ndati=filtri.Lt(dati, param[0]);
+							Ndati=filtri.Lt(dati, param.get(0));
 						    for(Double d:Ndati)
 						    {
 						    	Paesi_filtrati.put(s.getPaese(d), d);
 						    }
-						    Filter.put(MainCat+":"+SubCat, Paesi_filtrati);
+						    Filter.put(c.getNameCat()+":"+s.getNameSub(), Paesi_filtrati);
 						    break;
 							case"In":
 							boolean in_nin;
@@ -274,7 +274,7 @@ public class Services {
 									esitoIn.put(p,"il dato non è relativo a nessun paese nell'elenco");
 								}
 							}
-							Filter.put(MainCat+":"+SubCat,esitoIn );
+							Filter.put(c.getNameCat()+":"+s.getNameSub(),esitoIn );
 							break;
 							default:
 							Paesi_filtrati.put("Errore", "Filtro inesistente");
@@ -298,10 +298,15 @@ public class Services {
 	 * @return i dati di tutta la macrocategoria filtrati
 	*/
 	
-	public Object Filter (String MainCat, String filtro, Double[] param)
+	public Object Filter (String MainCat, String filtro, ArrayList <Double> param)
 	{
 		boolean flag1=false;
 		ArrayList <Object> info=new ArrayList <Object>();
+		if(param.isEmpty()|| filtro.equals(""))
+		{
+			info.add("Errore: parametro o filtro non inserito");
+			return info;
+		}
 		for(MainCat c:lista)
 		{
 			flag1 = check(c.getNameCat(),MainCat);
@@ -309,7 +314,7 @@ public class Services {
 			{
 				for(SubCat s: c.getSottocategorie())
 				{
-					info.add(Filter (MainCat,s.getNameSub(),filtro,param));
+					info.add(Filter (c.getNameCat(),s.getNameSub(),filtro,param));
 				}
 			}
 		}
@@ -322,9 +327,14 @@ public class Services {
 	 * @return i dati di tutto il csv filtrati
 	*/
 	
-	public Object Filter (String filtro, Double[] param)
+	public Object Filter (String filtro, ArrayList <Double> param)
 	{
 		ArrayList <Object> info=new ArrayList <Object>();
+		if(param.isEmpty()|| filtro.equals(""))
+		{
+			info.add("Errore: parametro o filtro non inserito");
+			return info;
+		}
 		for(MainCat c:lista)
 		{
 			info.add(Filter(c.getNameCat(),filtro,param));

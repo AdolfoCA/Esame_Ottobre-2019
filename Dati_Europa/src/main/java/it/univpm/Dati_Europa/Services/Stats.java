@@ -3,8 +3,8 @@ package it.univpm.Dati_Europa.Services;
 import java.util.ArrayList;
 
 /**
- * Classe concepita per definire le operazioniche genereranno le statistiche
-*/
+ * Classe concepita per definire le operazioni che genereranno le statistiche
+ */
 
 public class Stats 
 {

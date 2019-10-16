@@ -33,7 +33,7 @@ public class Parsing {
 	/**
 	 * Costruttore della classe:
 	 * @param link, la stringa contenente l'URL del csv
-	 * il suo comito e' separare il contenuto del csv in base ai delimitatori, tenendo conto che alcuni elementi vanno considerati come indici che descrivono l'andamento di un paese mentre altri come i valori numerici relativi a tali indici
+	 * il suo compito e' separare il contenuto del csv in base ai delimitatori, tenendo conto che alcuni elementi vanno considerati come indici che descrivono l'andamento di un paese mentre altri come i valori numerici relativi a tali indici
 	*/
 	public Parsing(String link)
 	{
