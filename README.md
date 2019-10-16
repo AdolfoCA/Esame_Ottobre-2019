@@ -61,7 +61,9 @@ SubCat  : Under 35*
 
 e si ottiene con il seguente output:
 
-    [
+  
+
+      [
     
     {
     
@@ -78,13 +80,14 @@ e si ottiene con il seguente output:
     }
     
     ]
-    se non viene specificata la sottocategoria allora 
-    
+   Se 
+ 
 
+   
 
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE0MDU5NDcwMiwtMjA3MDk0MTc5NCwtMT
+eyJoaXN0b3J5IjpbLTYwNzU0ODQwMCwtMjA3MDk0MTc5NCwtMT
 Q1MDI5NDQzMF19
 -->
