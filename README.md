@@ -26,11 +26,11 @@ Se si desidera ottenere un dato relativo ad un particolare paese, rispetto ad un
 localhost:8080/DatoPaese
 ```
 e passare come parametri la Macrocategoria, Sottocategoria e paese.
-|Key| Value |
-|--|--|
-| MainCat | "nome macrocategoria" |
-|SubCat  | "nome sottocategoria" |
-|Paese| "nome paese" |
+Key : Value 
+
+ MainCat  : "nome macrocategoria"  
+SubCat  : "nome sottocategoria" 
+Paese :  "nome paese" 
 
 
 
@@ -84,6 +84,6 @@ e si ottiene con il seguente output:
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTMzMjk0MTEzMiwtMjA3MDk0MTc5NCwtMT
+eyJoaXN0b3J5IjpbMTgyMzY0MzU4MCwtMjA3MDk0MTc5NCwtMT
 Q1MDI5NDQzMF19
 -->
