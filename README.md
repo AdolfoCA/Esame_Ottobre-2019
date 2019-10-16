@@ -154,9 +154,15 @@ e si ottiene con il seguente output:
   Se non viene specificata la sottocategoria vengono restituiti i dati filtrati delle sottocategorie relative alla macrocategoria dichiarata.
 Se non viene dichiarata la macrocategoria vengono restituiti i dati filtrati  relativi a tutte le macrocategorie del csv.
 la mancata dichiarazione del filtro e/o dei parametri restituisce un errore.
+Si possono applicare i seguenti filtri:
 
 
+-   Gt : (greater than) elementi maggiori del valore passato
 
+-   Lt : (less than) elementi minori al valore passato
+   
+-  In : elemento/i contenuto nei dati
+   
  
 
    
@@ -165,6 +171,6 @@ la mancata dichiarazione del filtro e/o dei parametri restituisce un errore.
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTExNzI5NDI0NSwtMTQxMjQxMzA3NSwtMj
-A5ODQ2MTY0NywtMjA3MDk0MTc5NCwtMTQ1MDI5NDQzMF19
+eyJoaXN0b3J5IjpbMjgwMzg4ODc5LC0xNDEyNDEzMDc1LC0yMD
+k4NDYxNjQ3LC0yMDcwOTQxNzk0LC0xNDUwMjk0NDMwXX0=
 -->
