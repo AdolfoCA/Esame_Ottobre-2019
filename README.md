@@ -2368,7 +2368,7 @@ _Download_Parsing_  include la classe che permette di fare il download e il pars
    ## Diagrammi
 
 ### Diagramma delle classi
-![](file:///Users/adolfocafaro/Documents/Esame_Ottobre-2019/Dati_Europa/diagramma_classi.png)
+![diagramma classi](file:///Users/adolfocafaro/Documents/Esame_Ottobre-2019/Dati_Europa/diagramma_classi.png)
  
  
 
@@ -2378,7 +2378,7 @@ _Download_Parsing_  include la classe che permette di fare il download e il pars
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE1MTQ2NjM3NDcsLTk5OTE1NzU1LC00Mz
-UzOTI2NTMsLTk1ODQ4NjA5MywtMTQxMjQxMzA3NSwtMjA5ODQ2
-MTY0NywtMjA3MDk0MTc5NCwtMTQ1MDI5NDQzMF19
+eyJoaXN0b3J5IjpbLTMzNzU5Mzc0MSwtOTk5MTU3NTUsLTQzNT
+M5MjY1MywtOTU4NDg2MDkzLC0xNDEyNDEzMDc1LC0yMDk4NDYx
+NjQ3LC0yMDcwOTQxNzk0LC0xNDUwMjk0NDMwXX0=
 -->
