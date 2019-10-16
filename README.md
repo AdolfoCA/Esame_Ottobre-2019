@@ -26,13 +26,12 @@ Se si desidera ottenere un dato relativo ad un particolare paese, rispetto ad un
 localhost:8080/DatoPaese
 ```
 e passare come parametri la Macrocategoria, Sottocategoria e paese.
+
 Key : Value 
 
- MainCat  : "nome macrocategoria"  
+MainCat  : "nome macrocategoria"  
 SubCat  : "nome sottocategoria" 
 Paese :  "nome paese" 
-
-
 
 ### Metadati
 
@@ -50,15 +49,16 @@ Per ottenere le statistiche rispetto ad una Macrocateogoria e sottocategoria bis
 localhost:8080/Statistiche
 ```
 e impostare due parametri: MainCat e SubCat.
-|Key| Value |
-|--|--|
-| MainCat | "nome macrocategoria" |
-|SubCat  | "nome sottocategoria" |
+Key : Value 
+
+MainCat  : "nome macrocategoria"  
+SubCat  : "nome sottocategoria" 
+
 Ad esempio, se si vogliono le statistiche sulla sottocategoria *Under 35* della macrocategoria *hh2b. Age* bisogna impostare come parametri 
-|Key| Value |
-|--|--|
-| MainCat | hh2hb.Age |
-|SubCat  |Under 35|
+*Key : Value 
+MainCat  : "nome macrocategoria"  
+SubCat  : "nome sottocategoria"* 
+
 e si ottiene con il seguente output:
 
     [
@@ -84,6 +84,6 @@ e si ottiene con il seguente output:
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTgyMzY0MzU4MCwtMjA3MDk0MTc5NCwtMT
+eyJoaXN0b3J5IjpbLTQ3ODI0NDgzMiwtMjA3MDk0MTc5NCwtMT
 Q1MDI5NDQzMF19
 -->
