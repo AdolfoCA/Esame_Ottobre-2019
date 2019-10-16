@@ -158,6 +158,7 @@ e si ottiene con il seguente output:
   Se non viene specificata la sottocategoria vengono restituiti i dati filtrati delle sottocategorie relative alla macrocategoria dichiarata.
 Se non viene dichiarata la macrocategoria vengono restituiti i dati filtrati  relativi a tutte le macrocategorie del CSV.
 la mancata dichiarazione del filtro e/o dei parametri restituisce un errore.
+
 Si possono applicare i seguenti filtri:
 
 
@@ -2372,7 +2373,7 @@ _Download_Parsing_  include la classe che permette di fare il download e il pars
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMjA1MDAxMzYwMSwtOTU4NDg2MDkzLC0xND
+eyJoaXN0b3J5IjpbLTQzNTM5MjY1MywtOTU4NDg2MDkzLC0xND
 EyNDEzMDc1LC0yMDk4NDYxNjQ3LC0yMDcwOTQxNzk0LC0xNDUw
 Mjk0NDMwXX0=
 -->
