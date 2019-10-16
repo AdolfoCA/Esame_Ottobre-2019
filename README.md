@@ -92,6 +92,11 @@ e aggiungere nel *body* la stringa
 ```
 {"MainCat": "nome macrocategoria", "SubCat":"nome sottocategoria", "Filtro":"tipo di filtro", "Param":"vettore di parametri"}
 ```
+Ad esempio, se si vogliono filtrare i dati della sottocategoria *Under 35* della macrocategoria *hh2b. Age* bisogna aggiungere nel *body* la stringa:
+{"MainCat": "hh2b. Age", "SubCat":"Under 35", "Filtro":"tipo di filtro", "Param":"30"}
+
+e si ottiene con il seguente output:
+
 
 
  
@@ -101,6 +106,6 @@ e aggiungere nel *body* la stringa
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTIwOTQ3ODQ2MTYsLTIwNzA5NDE3OTQsLT
-E0NTAyOTQ0MzBdfQ==
+eyJoaXN0b3J5IjpbNjU1Nzc3Mzk5LC0yMDcwOTQxNzk0LC0xND
+UwMjk0NDMwXX0=
 -->
