@@ -151,8 +151,9 @@ e si ottiene con il seguente output:
     
     }
     
-  Se non viene specificata la sottocategoria allora vengono restituite dati filtrati delle sottocategorie della macrocategoria dichiarata.
-Se non viene dichiarata la macrocategoria vengono restituite le statistiche rispetto a tutte le macrocategorie del csv.
+  Se non viene specificata la sottocategoria vengono restituiti i dati filtrati delle sottocategorie relative alla macrocategoria dichiarata.
+Se non viene dichiarata la macrocategoria vengono restituiti i dati filtrati  relativi a tutte le macrocategorie del csv.
+la mancata dichiarazione del filtro 
 
 
  
@@ -163,6 +164,6 @@ Se non viene dichiarata la macrocategoria vengono restituite le statistiche risp
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTY5ODgyMjI0NCwtMjA5ODQ2MTY0NywtMj
+eyJoaXN0b3J5IjpbLTM2MzU3NzIyNywtMjA5ODQ2MTY0NywtMj
 A3MDk0MTc5NCwtMTQ1MDI5NDQzMF19
 -->
