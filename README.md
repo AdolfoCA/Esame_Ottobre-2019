@@ -81,7 +81,7 @@ e si ottiene con il seguente output:
     
     ]
  Se non viene specificata la sottocategoria allora vengono restituite le statistiche rispetto a tutte le sottocategorie della macrocategoria dichiarata.
-Se non viene dichiarata la macrocategoria vengono restituite le statistiche rispetto a tutte le macrocategorie del csv.
+Se non viene dichiarata la macrocategoria vengono restituite le statistiche rispetto a tutte le macrocategorie del CSV.
 
 ### Filtri
 Per ottenere i dati filtrati di una macrocateogoria e sottocategoria bisogna impostare il metodo **POST**, definire la rotta
@@ -152,7 +152,7 @@ e si ottiene con il seguente output:
     }
     
   Se non viene specificata la sottocategoria vengono restituiti i dati filtrati delle sottocategorie relative alla macrocategoria dichiarata.
-Se non viene dichiarata la macrocategoria vengono restituiti i dati filtrati  relativi a tutte le macrocategorie del csv.
+Se non viene dichiarata la macrocategoria vengono restituiti i dati filtrati  relativi a tutte le macrocategorie del CSV.
 la mancata dichiarazione del filtro e/o dei parametri restituisce un errore.
 Si possono applicare i seguenti filtri:
 
@@ -2368,7 +2368,7 @@ _Download_Parsing_  include la classe che permette di fare il download e il pars
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE4MjM5MDE3MDcsLTE0MTI0MTMwNzUsLT
+eyJoaXN0b3J5IjpbLTEyODg5ODE1MTUsLTE0MTI0MTMwNzUsLT
 IwOTg0NjE2NDcsLTIwNzA5NDE3OTQsLTE0NTAyOTQ0MzBdfQ==
 
 -->
