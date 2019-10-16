@@ -80,11 +80,8 @@ e si ottiene con il seguente output:
     }
     
     ]
-   Se non viene specificata la sottocategoria 
-   *Key : Value 
-MainCat  : "nome Macrocategoria"
-SubCat  :*
-allora vengono restituite le statistiche rispetto a tutte le sottocategorie della Macrocategoria dichiarata.
+   Se non viene specificata la sottocategoria allora vengono restituite le statistiche rispetto a tutte le sottocategorie della macrocategoria dichiarata.
+Se non viene dichiarata la 
  
 
    
@@ -92,6 +89,6 @@ allora vengono restituite le statistiche rispetto a tutte le sottocategorie dell
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTQ4MzUxMjYwLC0yMDcwOTQxNzk0LC0xND
+eyJoaXN0b3J5IjpbNzU0NzMwMjQwLC0yMDcwOTQxNzk0LC0xND
 UwMjk0NDMwXX0=
 -->
