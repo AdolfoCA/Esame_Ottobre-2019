@@ -163,7 +163,8 @@ Si possono applicare i seguenti filtri:
    
 -  In : elemento/i contenuto nei dati
 
-il filtro In implementa anche il fit
+il filtro In implementa in maniera implicita il filtro Nin.
+
    
  
 
@@ -173,6 +174,6 @@ il filtro In implementa anche il fit
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNjg5MDE0NTE4LC0xNDEyNDEzMDc1LC0yMD
-k4NDYxNjQ3LC0yMDcwOTQxNzk0LC0xNDUwMjk0NDMwXX0=
+eyJoaXN0b3J5IjpbLTcwOTg3ODUzNSwtMTQxMjQxMzA3NSwtMj
+A5ODQ2MTY0NywtMjA3MDk0MTc5NCwtMTQ1MDI5NDQzMF19
 -->
