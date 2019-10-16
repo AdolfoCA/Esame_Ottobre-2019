@@ -2369,10 +2369,10 @@ _Download_Parsing_  include la classe che permette di fare il download e il pars
 
 ### Diagramma delle classi
 
-![class diagramm](file:///Users/adolfocafaro/Documents/Esame_Ottobre-2019/Dati_Europa/diagramma_classi.png)
+![diagramma delle classi](https://github.com/AdolfoCA/Esame_Ottobre-2019/blob/master/Dati_Europa/diagrammi/diagramma_classi.png)
 
    ### Casi d'uso
-   
+   ![enter image description here](https://github.com/AdolfoCA/Esame_Ottobre-2019/blob/master/Dati_Europa/diagrammi/:Users:adolfocafaro:umldesignerws:diagramma:Use%20Case%20Diagram.png)
    
    
 
@@ -2380,8 +2380,8 @@ _Download_Parsing_  include la classe che permette di fare il download e il pars
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTIxMjYwMDE0OCw5NjU2ODEzNTQsLTk5OT
-E1NzU1LC00MzUzOTI2NTMsLTk1ODQ4NjA5MywtMTQxMjQxMzA3
-NSwtMjA5ODQ2MTY0NywtMjA3MDk0MTc5NCwtMTQ1MDI5NDQzMF
-19
+eyJoaXN0b3J5IjpbLTExMDMzMTI5MDEsLTIxMjYwMDE0OCw5Nj
+U2ODEzNTQsLTk5OTE1NzU1LC00MzUzOTI2NTMsLTk1ODQ4NjA5
+MywtMTQxMjQxMzA3NSwtMjA5ODQ2MTY0NywtMjA3MDk0MTc5NC
+wtMTQ1MDI5NDQzMF19
 -->
