@@ -90,8 +90,9 @@ localhost:8080/Filtri
 ```
 e aggiungere nel *body* la stringa
 ```
-{"MainCat": "nome macrocategoria", "SubCat":"nome sottocategoria", "Filtro":"tipo di filtro", }
+{"MainCat": "nome macrocategoria", "SubCat":"nome sottocategoria", "Filtro":"tipo di filtro", "Param":"vettore di parametri"}
 ```
+
 
  
 
@@ -100,6 +101,6 @@ e aggiungere nel *body* la stringa
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE4NzA0MTMzMzYsLTIwNzA5NDE3OTQsLT
+eyJoaXN0b3J5IjpbLTIwOTQ3ODQ2MTYsLTIwNzA5NDE3OTQsLT
 E0NTAyOTQ0MzBdfQ==
 -->
