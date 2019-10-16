@@ -43,7 +43,7 @@ localhost:8080/Metadati
 
 ### Statistiche
 
-Per ottenere le statistiche rispetto ad una Macrocateogoria e sottocategoria bisogna impostare il metodo **GET**, definire la rotta
+Per ottenere le statistiche rispetto ad una macrocateogoria e sottocategoria bisogna impostare il metodo **GET**, definire la rotta
 ``` 
 localhost:8080/Statistiche
 ```
@@ -80,8 +80,8 @@ e si ottiene con il seguente output:
     }
     
     ]
-   Se non viene specificata la sottocategoria allora vengono restituite le statistiche rispetto a tutte le sottocategorie della macrocategoria dichiarata.
-Se non viene dichiarata la 
+ Se non viene specificata la sottocategoria allora vengono restituite le statistiche rispetto a tutte le sottocategorie della macrocategoria dichiarata.
+Se non viene dichiarata la macrocategoria vengono restituite le statistiche rispetto a tutte le macrocategorie del csv.
  
 
    
@@ -89,6 +89,6 @@ Se non viene dichiarata la
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNzU0NzMwMjQwLC0yMDcwOTQxNzk0LC0xND
+eyJoaXN0b3J5IjpbOTQ0Njc1MjcxLC0yMDcwOTQxNzk0LC0xND
 UwMjk0NDMwXX0=
 -->
