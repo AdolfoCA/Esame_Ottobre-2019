@@ -88,7 +88,10 @@ Per ottenere i dati filtrati di una macrocateogoria e sottocategoria bisogna imp
 ``` 
 localhost:8080/Filtri
 ```
-e ag
+e aggiungere nel *body* la stringa
+```
+{"MainCat": "nome macrocategoria", "SubCat":"nome sottocategoria", "Filtro":"tipo di filtro", }
+```
 
  
 
@@ -97,6 +100,6 @@ e ag
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTc4MTczMDk3LC0yMDcwOTQxNzk0LC0xND
-UwMjk0NDMwXX0=
+eyJoaXN0b3J5IjpbLTE4NzA0MTMzMzYsLTIwNzA5NDE3OTQsLT
+E0NTAyOTQ0MzBdfQ==
 -->
