@@ -156,6 +156,7 @@ Se non viene dichiarata la macrocategoria vengono restituiti i dati filtrati  re
 la mancata dichiarazione del filtro e/o dei parametri restituisce un errore.
 
 
+
  
 
    
@@ -164,6 +165,6 @@ la mancata dichiarazione del filtro e/o dei parametri restituisce un errore.
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE0MTI0MTMwNzUsLTIwOTg0NjE2NDcsLT
-IwNzA5NDE3OTQsLTE0NTAyOTQ0MzBdfQ==
+eyJoaXN0b3J5IjpbLTExNzI5NDI0NSwtMTQxMjQxMzA3NSwtMj
+A5ODQ2MTY0NywtMjA3MDk0MTc5NCwtMTQ1MDI5NDQzMF19
 -->
