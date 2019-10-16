@@ -153,7 +153,7 @@ e si ottiene con il seguente output:
     
   Se non viene specificata la sottocategoria vengono restituiti i dati filtrati delle sottocategorie relative alla macrocategoria dichiarata.
 Se non viene dichiarata la macrocategoria vengono restituiti i dati filtrati  relativi a tutte le macrocategorie del csv.
-la mancata dichiarazione del filtro 
+la mancata dichiarazione del filtro e/o dei parametri restituisce un errore.
 
 
  
@@ -164,6 +164,6 @@ la mancata dichiarazione del filtro
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTM2MzU3NzIyNywtMjA5ODQ2MTY0NywtMj
-A3MDk0MTc5NCwtMTQ1MDI5NDQzMF19
+eyJoaXN0b3J5IjpbLTE0MTI0MTMwNzUsLTIwOTg0NjE2NDcsLT
+IwNzA5NDE3OTQsLTE0NTAyOTQ0MzBdfQ==
 -->
