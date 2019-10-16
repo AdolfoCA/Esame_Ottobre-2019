@@ -12,7 +12,7 @@ All’avvio, l’applicazione apre una connessione con il web-server in locale s
 Per testare il software è possibile utilizzare **Postman**, ambiente attraverso il quale è possibile richiedere dati, metadati, statistiche sui dati e si possono applicare filtri a dati e statistiche.
 
 ### Modellazione
-La moderazione del csv è fatta ad "albero". Il tronco è la macrocategoria **MainCat** che presenta un numero *n* di sottocategorie **SubCat**,i rami dell'albero. Ciascuna SubCat è caratterizzata da una mappa di dati, le foglie, a ciuascuno dei quali è riferito un paese.
+La moderazione del csv è fatta ad "albero". Il tronco è la macrocategoria **MainCat** che presenta un numero *n* di sottocategorie **SubCat**,i rami dell'albero. Ciascuna SubCat è caratterizzata da una mappa di dati, a ciuascuno dei quali è riferito un paese.
 
 ###  Dati
 
@@ -26,6 +26,13 @@ Se si desidera ottenere un dato relativo ad un particolare paese, rispetto ad un
 localhost:8080/DatoPaese
 ```
 e passare come parametri la Macrocategoria, Sottocategoria e paese.
+|Key| Value |
+|--|--|
+| MainCat | "nome macrocategoria" |
+|SubCat  | "nome sottocategoria" |
+|Paese| "nome paese" |
+
+
 
 ### Metadati
 
@@ -43,10 +50,21 @@ Per ottenere le statistiche rispetto ad una Macrocateogoria e sottocategoria bis
 localhost:8080/Statistiche
 ```
 e impostare due parametri: MainCat e SubCat.
-Ad esempio
+|Key| Value |
+|--|--|
+| MainCat | "nome macrocategoria" |
+|SubCat  | "nome sottocategoria" |
+Ad esempio, se si vogliono le statistiche sulla sottocategoria *Under 35* della macrocategoria *hh2b. Age* bisogna impostare come parametri 
+|Key| Value |
+|--|--|
+| MainCat | hh2hb.Age |
+|SubCat  |Under 35|
+e si ottiene con il seguente output:
+
+
 
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMjAxMzE5NTM4N119
+eyJoaXN0b3J5IjpbLTE0NTAyOTQ0MzBdfQ==
 -->
