@@ -27,7 +27,7 @@ localhost:8080/DatoPaese
 ```
 e passare come parametri la Macrocategoria, Sottocategoria e paese.
 
-*Key : Value *
+*Key : Value*
 
 *MainCat  : "nome macrocategoria"  
 SubCat  : "nome sottocategoria" 
@@ -59,8 +59,8 @@ Ad esempio, se si vogliono le statistiche sulla sottocategoria *Under 35* della 
 
 *Key : Value*
 
-*MainCat  : hh2b. Age
-SubCat  : Under 35*
+*MainCat  : hh2b. Age*
+*SubCat  : Under 35*
 
 e si ottiene con il seguente output:
 
@@ -2371,6 +2371,6 @@ _Download_Parsing_  include la classe che permette di fare il download e il pars
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbOTE0MDQ2MDU3LC0xNDEyNDEzMDc1LC0yMD
-k4NDYxNjQ3LC0yMDcwOTQxNzk0LC0xNDUwMjk0NDMwXX0=
+eyJoaXN0b3J5IjpbLTk1ODQ4NjA5MywtMTQxMjQxMzA3NSwtMj
+A5ODQ2MTY0NywtMjA3MDk0MTc5NCwtMTQ1MDI5NDQzMF19
 -->
