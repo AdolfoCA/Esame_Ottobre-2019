@@ -163,8 +163,9 @@ Si possono applicare i seguenti filtri:
    
 -  In : elemento/i contenuto nei dati
 
-il filtro In implementa in maniera implicita il filtro Nin.
+il filtro *In* implementa in maniera implicita il filtro *Nin*.
 Di seguito viene elencata la lista con tutte le macrocategorie e relative sottocategorie:
+
 **hh2b. Age**
 
 Under 35
@@ -2353,6 +2354,7 @@ Yes
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTA4MDU4MTYxMiwtMTQxMjQxMzA3NSwtMj
-A5ODQ2MTY0NywtMjA3MDk0MTc5NCwtMTQ1MDI5NDQzMF19
+eyJoaXN0b3J5IjpbLTE0NjYwNTU1ODIsLTE0MTI0MTMwNzUsLT
+IwOTg0NjE2NDcsLTIwNzA5NDE3OTQsLTE0NTAyOTQ0MzBdfQ==
+
 -->
