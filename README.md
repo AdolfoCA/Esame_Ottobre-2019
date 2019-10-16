@@ -96,6 +96,63 @@ Ad esempio, se si vogliono filtrare i dati maggiori di 30 della sottocategoria *
 {"MainCat": "hh2b. Age", "SubCat":"Under 35", "Filtro":"Gt", "Param":"30"}
 e si ottiene con il seguente output:
 
+  
+
+     {
+    " hh2b. Age :Under 35": {
+    
+    "Cyprus": 32.8,
+    
+    "United Kingdom": 32.7,
+    
+    "Portugal": 32.3,
+    
+    "Malta": 55.9,
+    
+    "Spain": 35.7,
+    
+    "Greece": 33.3,
+    
+    "Netherlands": 37.5,
+    
+    "Austria": 33.7,
+    
+    "Turkey": 53.2,
+    
+    "Kosovo": 52.4,
+    
+    "Belgium": 34.2,
+    
+    "EU27": 32.2,
+    
+    "Norway": 33.5,
+    
+    "Ireland": 41.8,
+    
+    "Luxembourg": 34.1,
+    
+    "Finland": 33.8,
+    
+    "Poland": 38.5,
+    
+    "Denmark": 33.9,
+    
+    "FYROM": 34.3,
+    
+    "Slovenia": 36.0,
+    
+    "France": 30.3,
+    
+    "Germany": 30.6,
+    
+    "Montenegro": 40.4
+    
+    }
+    
+    }
+    
+  Se non viene specificata la sottocategoria allora vengono restituite dati filtrati delle sottocategorie della macrocategoria dichiarata.
+Se non viene dichiarata la macrocategoria vengono restituite le statistiche rispetto a tutte le macrocategorie del csv.
 
 
  
@@ -104,7 +161,8 @@ e si ottiene con il seguente output:
 
 
 
+
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTIwOTg0NjE2NDcsLTIwNzA5NDE3OTQsLT
-E0NTAyOTQ0MzBdfQ==
+eyJoaXN0b3J5IjpbMTY5ODgyMjI0NCwtMjA5ODQ2MTY0NywtMj
+A3MDk0MTc5NCwtMTQ1MDI5NDQzMF19
 -->
