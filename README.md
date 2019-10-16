@@ -61,10 +61,28 @@ Ad esempio, se si vogliono le statistiche sulla sottocategoria *Under 35* della 
 |SubCat  |Under 35|
 e si ottiene con il seguente output:
 
+    [
+    
+    {
+    
+    "Somma": 1193.6000000000001,
+    
+    "Media": 34.10285714285715,
+    
+    "min:Czech Republic": 26.1,
+    
+    "max:Malta": 55.9,
+    
+    "Deviazione Standard": 42.070057217523654
+    
+    }
+    
+    ]
 
 
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE0NTAyOTQ0MzBdfQ==
+eyJoaXN0b3J5IjpbLTIwNzA5NDE3OTQsLTE0NTAyOTQ0MzBdfQ
+==
 -->
