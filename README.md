@@ -2374,17 +2374,17 @@ _Download_Parsing_  include la classe che permette di fare il download e il pars
    ### Casi d'uso
    ![casi d'uso](https://github.com/AdolfoCA/Esame_Ottobre-2019/blob/master/Dati_Europa/diagrammi/:Users:adolfocafaro:umldesignerws:diagramma:Use%20Case%20Diagram.png)
    
-  ### Diagramma delle sequenze
+  ### GET Dati![GET Dati](https://github.com/AdolfoCA/Esame_Ottobre-2019/blob/master/Dati_Europa/diagrammi/GET%20Dati.png)
   
-   
+   ###GET Metadati![Ge](https://github.com/AdolfoCA/Esame_Ottobre-2019/blob/master/Dati_Europa/diagrammi/Get%20Metadati.png)
    
 
 
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTIzMTY2MTgwLC0yMTI2MDAxNDgsOTY1Nj
-gxMzU0LC05OTkxNTc1NSwtNDM1MzkyNjUzLC05NTg0ODYwOTMs
-LTE0MTI0MTMwNzUsLTIwOTg0NjE2NDcsLTIwNzA5NDE3OTQsLT
-E0NTAyOTQ0MzBdfQ==
+eyJoaXN0b3J5IjpbLTEzOTA5NzkxNTQsLTIzMTY2MTgwLC0yMT
+I2MDAxNDgsOTY1NjgxMzU0LC05OTkxNTc1NSwtNDM1MzkyNjUz
+LC05NTg0ODYwOTMsLTE0MTI0MTMwNzUsLTIwOTg0NjE2NDcsLT
+IwNzA5NDE3OTQsLTE0NTAyOTQ0MzBdfQ==
 -->
